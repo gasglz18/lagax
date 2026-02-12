@@ -53,17 +53,30 @@ p {
 }
 /* Media query para pantallas pequeñas */
 @media (max-width: 600px) {
+    body {
+        padding: 10px; /* Un poco de espacio interno en móviles */
+    }
+
     h1 {
         font-size: 1.5rem; /* Reducir el tamaño del título en móviles */
     }
 
+    h2, h3, p {
+        font-size: 1rem; /* Ajustar el tamaño de otros textos */
+    }
+
+    .menu ul {
+        padding: 0;
+        margin: 0;
+    }
+
     .menu li {
         display: block; /* Apilar los elementos verticalmente */
-        margin: 10px 0; /* Espacio entre ellos */
+        margin-bottom: 10px; /* Espacio entre los elementos */
     }
 
     .menu a {
-        padding: 8px 16px; /* Ajustar el padding en móviles */
-        font-size: 0.9rem; /* Reducir el tamaño del texto de los botones */
+        padding: 8px 12px; /* Ajustar el padding de los botones */
+        font-size: 0.9rem; /* Reducir un poco el texto de los botones */
     }
 }
