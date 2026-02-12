@@ -11,6 +11,7 @@ h1, h2, h3, p {
 }
 h1 {
     font-size: 4.5rem; /* Tamaño más grande para los títulos */
+    text-align: center; /* Centrar el texto*/
 }
 
 h2 {
