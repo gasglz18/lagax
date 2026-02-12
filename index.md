@@ -71,53 +71,19 @@ Visítanos en nuestras sucursales ubicadas estratégicamente para servir mejor a
 </style>
 
 <div class="contact-form">
-<form id="contactForm" action="https://formspree.io/f/xpwgzldj" method="POST">
-  <label><strong>Teléfono</strong></label>
-  <input type="tel" name="Teléfono" required>
+<style>
+.gform-wrap { max-width: 700px; margin: 16px auto; }
+.gform-iframe { position: relative; padding-bottom: 120%; height: 0; overflow: hidden; }
+.gform-iframe iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:0; }
+</style>
 
-  <label><strong>Empresa</strong></label>
-  <input type="text" name="Empresa" required>
-
-  <label><strong>Correo</strong></label>
-  <input type="email" name="Correo" required>
-
-  <label><strong>Ubicación</strong></label>
-  <input type="text" name="Ubicación" placeholder="Ciudad, País" required>
-
-  <label><strong>Mensaje</strong></label>
-  <textarea name="Mensaje" rows="4" placeholder="Escribe tu mensaje aquí" required></textarea>
-
-  <button type="submit">Enviar</button>
-</form>
-
-<div id="contactResult" style="max-width:400px;margin:12px auto;text-align:center;"></div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  var form = document.getElementById('contactForm');
-  var result = document.getElementById('contactResult');
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-    var btn = form.querySelector('button[type="submit"]');
-    btn.disabled = true;
-    var originalText = btn.textContent;
-    btn.textContent = 'Enviando...';
-    var data = new FormData(form);
-    try {
-      var resp = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
-      if (resp.ok) {
-        result.innerHTML = '<p style="padding:10px;background:#e6ffed;border:1px solid #b9f5d0;border-radius:6px;">Gracias, tu mensaje fue enviado. Te contactaremos pronto.</p>';
-        form.reset();
-      } else {
-        var json = await resp.json();
-        throw new Error(json.error || 'Error al enviar');
-      }
-    } catch (err) {
-      result.innerHTML = '<p style="padding:10px;background:#ffecec;border:1px solid #f5c6cb;border-radius:6px;color:#a94442;">No se pudo enviar. Intenta de nuevo más tarde.</p>';
-      btn.disabled = false;
-      btn.textContent = originalText;
-    }
-  });
-});
-</script>
+<div class="gform-wrap">
+  <p style="text-align:center;margin-bottom:8px;">Formulario de contacto (Google Forms)</p>
+  <div class="gform-iframe">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc0RrW42VsccmbIpsoUJw-KAe62wWeOhCJL3N7hdqIMS9n1yA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+  </div>
+  <p style="text-align:center;margin-top:8px;font-size:0.95rem;">Si tienes problemas para enviar aquí, <a href="https://docs.google.com/forms/d/e/1FAIpQLSc0RrW42VsccmbIpsoUJw-KAe62wWeOhCJL3N7hdqIMS9n1yA/viewform" target="_blank" rel="noopener">abre el formulario en otra pestaña</a>.</p>
 </div>
+
+</div>
+
