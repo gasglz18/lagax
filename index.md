@@ -60,3 +60,49 @@ Visítanos en nuestras sucursales ubicadas estratégicamente para servir mejor a
 - Teléfono: +34 XXX XXX XXX
 - Email: info@lagax.shop
 - Web: www.lagax.shop
+
+### Formulario de Contacto
+
+Cuéntanos sobre tus necesidades y nos pondremos en contacto contigo:
+
+<form action="https://formspree.io/f/xpwgzldj" method="POST" style="max-width: 500px; margin: 20px auto; padding: 20px; background: #f5f5f5; border-radius: 10px;">
+  
+  <div style="margin-bottom: 15px;">
+    <label for="nombre" style="display: block; margin-bottom: 5px; font-weight: bold;">Nombre *</label>
+    <input type="text" id="nombre" name="Nombre" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;">
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label for="empresa" style="display: block; margin-bottom: 5px; font-weight: bold;">Empresa *</label>
+    <input type="text" id="empresa" name="Empresa" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;">
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label for="telefono" style="display: block; margin-bottom: 5px; font-weight: bold;">Teléfono *</label>
+    <input type="tel" id="telefono" name="Teléfono" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;">
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">Email *</label>
+    <input type="email" id="email" name="Email" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;">
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label for="tipo_necesidad" style="display: block; margin-bottom: 5px; font-weight: bold;">Tipo de Necesidad *</label>
+    <select id="tipo_necesidad" name="Tipo de Necesidad" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;">
+      <option value="">-- Selecciona una opción --</option>
+      <option value="Distribución de productos">Distribución de productos</option>
+      <option value="Asesoría comercial">Asesoría comercial</option>
+      <option value="Soluciones logísticas">Soluciones logísticas</option>
+      <option value="Servicios especializados">Servicios especializados</option>
+      <option value="Otra">Otra consulta</option>
+    </select>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label for="mensaje" style="display: block; margin-bottom: 5px; font-weight: bold;">Mensaje</label>
+    <textarea id="mensaje" name="Mensaje" rows="5" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; font-family: Arial, sans-serif;"></textarea>
+  </div>
+
+  <button type="submit" style="width: 100%; padding: 12px; background: #0066cc; color: white; border: none; border-radius: 5px; font-weight: bold; font-size: 16px; cursor: pointer;">Enviar</button>
+</form>
