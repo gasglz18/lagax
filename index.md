@@ -27,7 +27,7 @@ Somos **Lagax**, tu comercializadora de confianza. Con años de experiencia en e
 
 ## Misión {#mision}
 
-Proporcionar soluciones comerciales de alta calidad, confiables y oportunas que superen las expectativas de nuestros clientes.
+En Productos y Servicios Lagax proveemos partes y servicios para la industria, asegurando que cada producto cumpla con las especificaciones de calidad requeridas por el cliente, en el tiempo adecuado y en las cantidades necesarias, con el objetivo de garantizar su satisfacción mediante un enfoque de mejora continua.
 
 ## Visión {#vision}
 
