@@ -3,7 +3,9 @@ layout: default
 title: Lagax - Tu Comercializadora
 ---
 
-<img src="LOGO%20LAGAX.jpg" alt="Logo Lagax" width="25%" style="max-width: 200px;">
+<div style="text-align: center; margin-top: -20px; margin-bottom: 20px;">
+  <img src="LOGO%20LAGAX.jpg" alt="Logo Lagax" width="25%" style="max-width: 200px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+</div>
 
 # Productos y Servicios Lagax
 
