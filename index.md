@@ -35,10 +35,11 @@ Ser la empresa comercializadora industrial más estratégica y confiable del pa�
 
 ## Valores {#valores}
 
-- **Confianza** - Somos una empresa transparente y confiable
-- **Calidad** - Nuestros productos y servicios son de la más alta calidad
-- **Compromiso** - Nos comprometemos con el éxito de nuestros clientes
-- **Transparencia** - Operamos con total honestidad y claridad
+- **Sentido de urgencia** - Actuamos con rapidez y enfoque en resultados, priorizando las necesidades del cliente.
+- **Amabilidad** - Fomentamos relaciones basadas en el trato cordial, la empatía y el servicio.
+- **Creatividad** - Buscamos soluciones innovadoras ante los retos del mercado y de nuestros clientes.
+- **Autoexigencia** - Trabajamos con altos estándares de desempeño y calidad en cada actividad que realizamos.
+- **Respeto** - Promovemos relaciones profesionales basadas en la consideración y la colaboración mutua.
 
 ## Nuestros Productos y Servicios {#productos-servicios}
 
