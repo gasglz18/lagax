@@ -46,53 +46,24 @@ p {
 .menu a:hover {
     background-color: #0056b3; /* Color al pasar el mouse */
 }
-/* Estilos generales */
-body {
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-}
-
-h1 {
-    font-size: 2rem;
-    margin-top: 40px;
-}
-
-.menu ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 30px;
-}
-
-.menu li {
-    display: inline-block;
-    margin: 0 15px;
-}
-
-.menu a {
-    text-decoration: none;
-    background-color: red;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-weight: bold;
-}
-
-.menu a:hover {
-    background-color: white;
-    color: red;
-}
-
-/* Media query para pantallas pequeñas */
-@media (max-width: 600px) {
-    .menu li {
-        display: block; /* Apilar los elementos verticalmente */
-        margin: 10px 0; /* Espacio vertical entre ellos */
-    }
-
     .menu a {
         padding: 10px; /* Ajustar el padding para pantallas pequeñas */
         font-size: 1rem; /* Reducir el tamaño de la fuente de los botones */
+    }
+}
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem; /* Reducir el tamaño del título en móviles */
+    }
+
+    .menu li {
+        display: block; /* Apilar los elementos verticalmente */
+        margin: 10px 0; /* Espacio entre ellos */
+    }
+
+    .menu a {
+        padding: 8px 16px; /* Ajustar el padding en móviles */
+        font-size: 0.9rem; /* Reducir el tamaño del texto de los botones */
     }
 }
