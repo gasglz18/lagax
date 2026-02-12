@@ -1,123 +1,58 @@
 ---
 layout: default
+title: Lagax - Tu Comercializadora
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+# Productos y Servicios Lagax
 
-[Link to another page](./another-page.html).
+Tu comercializadora de confianza
 
-There should be whitespace between paragraphs.
+## Menú Principal
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+- [Quiénes somos](#quienes-somos)
+- [Misión](#mision)
+- [Visión](#vision)
+- [Valores](#valores)
+- [Nuestros productos y servicios](#productos-servicios)
+- [Ubicaciones](#ubicaciones)
+- [Contáctanos](#contactanos)
 
-# Header 1
+## Quiénes somos {#quienes-somos}
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+Somos **Lagax**, tu comercializadora de confianza. Con años de experiencia en el sector, nos dedicamos a proporcionar soluciones comerciales de alta calidad.
 
-## Header 2
+## Misión {#mision}
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+Proporcionar soluciones comerciales de alta calidad, confiables y oportunas que superen las expectativas de nuestros clientes.
 
-### Header 3
+## Visión {#vision}
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
+Ser la comercializadora preferida y más confiable del mercado, reconocida por nuestra excelencia y compromiso con nuestros clientes.
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
+## Valores {#valores}
 
-#### Header 4
+- **Confianza** - Somos una empresa transparente y confiable
+- **Calidad** - Nuestros productos y servicios son de la más alta calidad
+- **Compromiso** - Nos comprometemos con el éxito de nuestros clientes
+- **Transparencia** - Operamos con total honestidad y claridad
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
+## Nuestros Productos y Servicios {#productos-servicios}
 
-##### Header 5
+Contamos con una amplia gama de productos y servicios diseñados para cubrir todas tus necesidades comerciales:
 
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
+- Distribución de productos
+- Asesoría comercial
+- Soluciones logísticas
+- Servicios especializados
 
-###### Header 6
+## Ubicaciones {#ubicaciones}
 
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
+Visítanos en nuestras sucursales ubicadas estratégicamente para servir mejor a nuestros clientes.
 
-### There's a horizontal rule below this.
+## Contáctanos {#contactanos}
 
-* * *
+¿Tienes preguntas o deseas conocer más sobre nuestros servicios? Ponte en contacto con nosotros:
 
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+- Teléfono: +34 XXX XXX XXX
+- Email: info@lagax.shop
+- Web: www.lagax.shop
