@@ -83,7 +83,11 @@ Visítanos en nuestras sucursales ubicadas estratégicamente para servir mejor a
 
 <label><strong>Ubicación</strong></label>
 <input type="text" name="Ubicación" placeholder="Ciudad, País" required>
+</td>
+  
+  <label><strong>Mensaje</strong></label>
+  <textarea name="Mensaje" rows="4" placeholder="Escribe tu mensaje aquí" required></textarea>
 
-<button type="submit">Enviar</button>
+  <button type="submit">Enviar</button>
 </form>
 </div>
