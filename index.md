@@ -60,3 +60,30 @@ Visítanos en nuestras sucursales ubicadas estratégicamente para servir mejor a
 - **Teléfono**: +34 XXX XXX XXX
 - **Email**: [direccion@lagax.shop](mailto:direccion@lagax.shop)
 - **Web**: www.lagax.shop
+
+---
+
+<style>
+.contact-form { max-width: 400px; margin: 20px auto; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f9f9f9; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 8px; margin: 8px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-family: Arial; }
+.contact-form button { width: 100%; padding: 10px; background: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+.contact-form button:hover { background: #0052a3; }
+</style>
+
+<div class="contact-form">
+<form action="https://formspree.io/f/xpwgzldj" method="POST">
+<label><strong>Teléfono</strong></label>
+<input type="tel" name="Teléfono" required>
+
+<label><strong>Empresa</strong></label>
+<input type="text" name="Empresa" required>
+
+<label><strong>Correo</strong></label>
+<input type="email" name="Correo" required>
+
+<label><strong>Ubicación</strong></label>
+<input type="text" name="Ubicación" placeholder="Ciudad, País" required>
+
+<button type="submit">Enviar</button>
+</form>
+</div>
