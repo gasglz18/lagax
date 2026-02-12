@@ -1,5 +1,18 @@
 title: LAGAX
 description: Tu sitio web
 url: "https://www.lagax.shop"
-show_downloads: true
-theme: jekyll-theme-dinky
+baseurl: ""
+remote_theme: pages-themes/dinky@v0.2.0
+plugins:
+  - jekyll-remote-theme
+markdown: kramdown
+kramdown:
+  auto_ids: true
+  footnote_backlinks: true
+  entity_output: symbolic
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  input: GFM
+  hard_wrap: false
+  footnote_nr: 1
+  show_warnings: false
