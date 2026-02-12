@@ -31,7 +31,7 @@ En Productos y Servicios Lagax proveemos partes y servicios para la industria, a
 
 ## Visión {#vision}
 
-Ser la comercializadora preferida y más confiable del mercado, reconocida por nuestra excelencia y compromiso con nuestros clientes.
+Ser la empresa comercializadora industrial más estratégica y confiable del país, reconocida por su alta calidad, agilidad operativa y capacidad para convertirnos en socios clave de nuestros clientes, contribuyendo a su crecimiento y a la solución eficiente de sus necesidades.
 
 ## Valores {#valores}
 
