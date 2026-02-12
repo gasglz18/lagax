@@ -45,6 +45,7 @@ Ser la empresa comercializadora industrial más estratégica y confiable del pa�
 
 Contamos con una amplia gama de productos y servicios diseñados para cubrir todas tus necesidades comerciales:
 
+- Servicio y asesoría de Impo-Export remoto
 - Distribución de productos
 - Asesoría comercial
 - Soluciones logísticas
