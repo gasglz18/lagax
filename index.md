@@ -57,39 +57,6 @@ Visítanos en nuestras sucursales ubicadas estratégicamente para servir mejor a
 
 ¿Tienes preguntas o deseas conocer más sobre nuestros servicios? Ponte en contacto con nosotros:
 
-- Teléfono: +34 XXX XXX XXX
-- Email: info@lagax.shop
-- Web: www.lagax.shop
-
-### Formulario de Contacto
-
-Cuéntanos sobre tus necesidades y nos pondremos en contacto contigo:
-
-<form action="https://formspree.io/f/xpwgzldj" method="POST">
-  <label for="nombre">Nombre *</label><br>
-  <input type="text" id="nombre" name="Nombre" required><br><br>
-  
-  <label for="empresa">Empresa *</label><br>
-  <input type="text" id="empresa" name="Empresa" required><br><br>
-  
-  <label for="telefono">Teléfono *</label><br>
-  <input type="tel" id="telefono" name="Teléfono" required><br><br>
-  
-  <label for="email">Email *</label><br>
-  <input type="email" id="email" name="Email" required><br><br>
-  
-  <label for="tipo_necesidad">Tipo de Necesidad *</label><br>
-  <select id="tipo_necesidad" name="Tipo de Necesidad" required>
-    <option value="">-- Selecciona una opción --</option>
-    <option value="Distribución de productos">Distribución de productos</option>
-    <option value="Asesoría comercial">Asesoría comercial</option>
-    <option value="Soluciones logísticas">Soluciones logísticas</option>
-    <option value="Servicios especializados">Servicios especializados</option>
-    <option value="Otra">Otra consulta</option>
-  </select><br><br>
-  
-  <label for="mensaje">Mensaje</label><br>
-  <textarea id="mensaje" name="Mensaje" rows="5"></textarea><br><br>
-  
-  <button type="submit">Enviar</button>
-</form>
+- **Teléfono**: +34 XXX XXX XXX
+- **Email**: [direccion@lagax.shop](mailto:direccion@lagax.shop)
+- **Web**: www.lagax.shop
