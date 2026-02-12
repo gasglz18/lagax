@@ -21,3 +21,28 @@ h2 {
 p {
     font-size: 1rem; /* Tamaño estándar para párrafos */
 }
+.menu {
+    margin-top: 20px; /* Esto le dará un espacio de 20 píxeles arriba del menú */
+}
+
+.menu ul {
+    list-style-type: none; /* Para quitar las viñetas */
+    padding: 0; /* Para eliminar el relleno por defecto */
+}
+
+.menu li {
+    display: inline-block; /* Para que los elementos se muestren en línea */
+    margin-right: 20px; /* Espacio entre los botones */
+}
+
+.menu a {
+    text-decoration: none; /* Para quitar el subrayado de los enlaces */
+    padding: 10px 20px; /* Espacio interno para que se vean como botones */
+    background-color: #007bff; /* Color de fondo */
+    color: white; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.menu a:hover {
+    background-color: #0056b3; /* Color al pasar el mouse */
+}
