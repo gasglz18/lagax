@@ -3,7 +3,7 @@ layout: default
 title: Lagax - Tu Comercializadora
 ---
 
-![Logo Lagax](LOGO%20LAGAX.jpg)
+<img src="LOGO%20LAGAX.jpg" alt="Logo Lagax" width="25%" style="max-width: 200px;">
 
 # Productos y Servicios Lagax
 
