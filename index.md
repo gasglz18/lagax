@@ -73,7 +73,7 @@ Visítanos en nuestras sucursales ubicadas estratégicamente para servir mejor a
 <div class="contact-form">
 <style>
 .gform-wrap { max-width: 700px; margin: 16px auto; }
-.gform-iframe { position: relative; padding-bottom: 120%; height: 0; overflow: hidden; }
+.gform-iframe { position: relative; padding-bottom: 60%; height: 0; overflow: hidden; }
 .gform-iframe iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:0; }
 </style>
 
