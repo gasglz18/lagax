@@ -3,6 +3,8 @@ layout: default
 title: Lagax - Tu Comercializadora
 ---
 
+![Logo Lagax](LOGO%20LAGAX.jpg)
+
 # Productos y Servicios Lagax
 
 Tu comercializadora de confianza
