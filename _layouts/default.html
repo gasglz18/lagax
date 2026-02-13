@@ -2,45 +2,65 @@
 ---
 
 <!doctype html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {% seo %}
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    {% include seo-meta.html %}
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ '/assets/css/style.min.css' | relative_url }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <style>
-      .header-logo {
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease, filter 0.4s ease !important;
-        cursor: pointer;
-      }
-      
-      .header-logo:hover {
-        transform: translateY(-15px) scale(1.15) !important;
-        box-shadow: 0 20px 50px rgba(102, 126, 234, 0.6), 0 0 30px rgba(118, 75, 162, 0.3) !important;
-        filter: brightness(1.1) drop-shadow(0 10px 20px rgba(102, 126, 234, 0.5)) !important;
-      }
-    </style>
     {% include head-custom.html %}
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <div style="text-align: center; padding: 40px 20px 30px 20px;">
-          <img src="LOGO%20LAGAX.jpg" alt="LAGAX Logo" class="header-logo" style="max-width: 200px; width: 70%; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); margin-bottom: 30px; display: block; margin-left: auto; margin-right: auto;">
-          <h1 class="header" style="margin: 20px 0 10px 0; font-size: 2.5rem; letter-spacing: 3px; line-height: 1.2;">{{ site.title }}</h1>
-          <p style="color: #667eea; font-weight: 600; margin: 15px 0 0 0; font-size: 1rem; letter-spacing: 0.5px;">Tu Comercializadora de Confianza</p>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+      <div class="container-fluid px-md-5">
+        <a class="navbar-brand" href="#home">
+          <img src="LOGO%20LAGAX.jpg" alt="LAGAX Logo" class="logo-nav me-3">
+          <span class="brand-text">LAGAX</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes Somos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#productos-servicios">Servicios</a></li>
+            <li class="nav-item"><a class="nav-link" href="#ubicaciones">Ubicaciones</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contactanos">Contacto</a></li>
+            <li class="nav-item">
+              <button class="btn btn-sm btn-outline-light ms-2" id="darkModeToggle" title="Modo oscuro">
+                <i class="fas fa-moon"></i>
+              </button>
+            </li>
+          </ul>
         </div>
-      </header>
+      </div>
+    </nav>
 
+    <!-- Main Content -->
+    <main class="main-content">
       <section>
         {{ content }}
       </section>
+    </main>
 
-      <footer>
-        <p><small>Productos y Servicios lagax S.A de C.V.</small></p>
-      </footer>
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    <!-- Footer -->
+    <footer class="footer mt-5 py-4">
+      <div class="container text-center">
+        <p class="mb-2"><small>&copy; 2024 Productos y Servicios Lagax S.A de C.V.</small></p>
+        <p class="mb-0"><small>Comercializadora Industrial | Importación • Exportación • Logística</small></p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Main JS (minified) -->
+    <script src="{{ '/assets/js/main.min.js' | relative_url }}"></script>
   </body>
 </html>
