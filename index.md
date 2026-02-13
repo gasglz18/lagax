@@ -188,6 +188,11 @@ Contamos con una amplia gama de productos y servicios diseñados para cubrir tod
         <div class="carousel-title">Soluciones Financieras</div>
         <div class="carousel-description">Asesoría financiera y soluciones de pago adaptadas a las necesidades de tu negocio industrial.</div>
       </div>
+      <div class="carousel-slide">
+        <img src="SOFTWARE.jpg" loading="lazy" alt="Desarrollo de Software">
+        <div class="carousel-title">Desarrollo de Software</div>
+        <div class="carousel-description">Desarrollo de páginas web, desarrollo de aplicaciones móviles y software a la medida del cliente.</div>
+      </div>
     </div>
     <button class="carousel-nav prev" onclick="moveCarousel(-1)">‹</button>
     <button class="carousel-nav next" onclick="moveCarousel(1)">›</button>
