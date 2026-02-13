@@ -371,6 +371,7 @@ Contáctanos para conocer cómo podemos ayudarte con tus necesidades de **comerc
 - **Teléfono**: +34 XXX XXX XXX
 - **Email**: [direccion@lagax.shop](mailto:direccion@lagax.shop)
 - **Email**: [rafael.carrillo@lagax.shop](mailto:rafael.carrillo@lagax.shop)
+- **Email**: [w.alfaro@lagax.shop](mailto:w.alfaro@lagax.shop)
 - **Web**: www.lagax.shop
 
 ---
