@@ -3,8 +3,8 @@ layout: default
 title: Lagax - Tu Comercializadora
 ---
 
-<div style="text-align: center; margin-top: 30px; margin-bottom: 50px;">
-  <img src="LOGO%20LAGAX.jpg" alt="Logo Lagax" width="25%" style="max-width: 200px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+<div class="lagax-logo-container">
+  <img src="LOGO%20LAGAX.jpg" alt="Logo Lagax" class="lagax-logo">
 </div>
 
 # Productos y Servicios Lagax
@@ -26,6 +26,28 @@ Tu comercializadora de confianza
 Somos **Lagax**, tu comercializadora de confianza. Con años de experiencia en el sector, nos dedicamos a proporcionar soluciones comerciales de alta calidad.
 
 <style>
+.lagax-logo-container {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.lagax-logo {
+  width: 25%;
+  max-width: 200px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease, filter 0.4s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.lagax-logo:hover {
+  transform: translateY(-15px) scale(1.15);
+  box-shadow: 0 20px 50px rgba(102, 126, 234, 0.6), 0 0 30px rgba(118, 75, 162, 0.3);
+  filter: brightness(1.1) drop-shadow(0 10px 20px rgba(102, 126, 234, 0.5));
+}
+
 .info-cards-container {
   max-width: 1200px;
   margin: 50px auto;
