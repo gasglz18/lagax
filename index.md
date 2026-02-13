@@ -358,16 +358,17 @@ En **Lagax** brindamos servicios de **comercialización industrial, importación
 
 #### Servicios Disponibles en Toda la Región
 
-Como **comercializadora industrial** líder en el centro y noreste de México, ofrecemos:
+Como **comercializadora industrial** líder, ofrecemos:
 
-- ✅ **Importación y Exportación** remota con seguimiento completo
-- ✅ **Logística Impo-Export** especializada para la industria
-- ✅ **Distribución de productos industriales** en Monterrey, Saltillo, Torreón y Aguascalientes
-- ✅ **Asesorías comerciales** personalizadas en Nuevo León, Coahuila y Aguascalientes
-- ✅ **Servicios de soldadura y pailería** industrial
-- ✅ **Soluciones financieras** para proyectos industriales
+- ✅ **Importación y Exportación** con seguimiento completo
+- ✅ **Logística Impo-Export** especializada
+- ✅ **Distribución de productos industriales**
+- ✅ **Asesorías comerciales** personalizadas
+- ✅ **Servicios de soldadura y pailería**
+- ✅ **Soluciones financieras** para proyectos
+- ✅ **Soluciones de Software** a la medida del cliente
 
-Contáctanos para conocer cómo podemos ayudarte con tus necesidades de **comercialización, importación y exportación** en la región.
+Contáctanos para conocer cómo podemos ayudarte con tus necesidades de comercialización.
 
 ## Contáctanos {#contactanos}
 
