@@ -576,13 +576,15 @@ En **Lagax** brindamos servicios de **comercialización industrial, importación
   padding: 30px 25px;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease, filter 0.4s ease;
   text-align: center;
+  cursor: pointer;
 }
 
 .ubicacion-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 20px 50px rgba(102, 126, 234, 0.6), 0 0 30px rgba(118, 75, 162, 0.3);
+  filter: brightness(1.1) drop-shadow(0 10px 20px rgba(102, 126, 234, 0.5));
 }
 
 .ubicacion-icon {
