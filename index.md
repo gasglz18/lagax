@@ -534,7 +534,102 @@ startAutoplay();
 
 ## Ubicaciones {#ubicaciones}
 
-Visítanos en nuestras sucursales ubicadas estratégicamente para servir mejor a nuestros clientes.
+### Nuestras Áreas de Servicio
+
+En **Lagax** brindamos servicios de **comercialización industrial, importación y exportación** en las principales ciudades del noreste de México:
+
+<style>
+.ubicaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.ubicacion-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.ubicacion-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+}
+
+.ubicacion-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.ubicacion-ciudad {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ubicacion-estado {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 15px;
+}
+
+.ubicacion-servicios {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+  .ubicaciones-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+</style>
+
+<div class="ubicaciones-grid">
+  <div class="ubicacion-card">
+    <span class="ubicacion-icon">📍</span>
+    <div class="ubicacion-ciudad">Monterrey</div>
+    <div class="ubicacion-estado">Nuevo León</div>
+    <div class="ubicacion-servicios">Importación • Exportación • Logística • Distribución Industrial</div>
+  </div>
+  
+  <div class="ubicacion-card">
+    <span class="ubicacion-icon">📍</span>
+    <div class="ubicacion-ciudad">Saltillo</div>
+    <div class="ubicacion-estado">Coahuila</div>
+    <div class="ubicacion-servicios">Comercialización • Impo-Export • Asesorías • Servicios Industriales</div>
+  </div>
+  
+  <div class="ubicacion-card">
+    <span class="ubicacion-icon">📍</span>
+    <div class="ubicacion-ciudad">Torreón</div>
+    <div class="ubicacion-estado">Coahuila</div>
+    <div class="ubicacion-servicios">Distribución • Exportación • Logística • Soluciones Comerciales</div>
+  </div>
+</div>
+
+#### Servicios Disponibles en Toda la Región
+
+Como **comercializadora industrial** líder en el noreste de México, ofrecemos:
+
+- ✅ **Importación y Exportación** remota con seguimiento completo
+- ✅ **Logística Impo-Export** especializada para la industria
+- ✅ **Distribución de productos industriales** en Monterrey, Saltillo y Torreón
+- ✅ **Asesorías comerciales** personalizadas en Nuevo León y Coahuila
+- ✅ **Servicios de soldadura y pailería** industrial
+- ✅ **Soluciones financieras** para proyectos industriales
+
+Contáctanos para conocer cómo podemos ayudarte con tus necesidades de **comercialización, importación y exportación** en la región.
 
 ## Contáctanos {#contactanos}
 
