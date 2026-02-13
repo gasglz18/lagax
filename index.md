@@ -70,6 +70,7 @@ Somos **Lagax**, tu comercializadora de confianza. Con años de experiencia en e
   position: relative;
   overflow: hidden;
   border: 2px solid transparent;
+  cursor: pointer;
 }
 
 .info-card::before {
@@ -89,9 +90,10 @@ Somos **Lagax**, tu comercializadora de confianza. Con años de experiencia en e
 }
 
 .info-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4);
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 20px 50px rgba(102, 126, 234, 0.6), 0 0 30px rgba(118, 75, 162, 0.3);
   border-color: rgba(102, 126, 234, 0.3);
+  filter: brightness(1.05) drop-shadow(0 10px 20px rgba(102, 126, 234, 0.4));
 }
 
 .info-card-icon {
