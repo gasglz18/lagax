@@ -14,26 +14,11 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1 class="header">{{ site.title | default: site.github.repository_name }}</h1>
-        <p class="header">{{ site.description | default: site.github.project_tagline }}</p>
-
-        <ul>
-          {% if site.show_downloads %}
-            <li class="download"><a class="buttons" href="{{ site.github.zip_url }}">Download ZIP</a></li>
-            <li class="download"><a class="buttons" href="{{ site.github.tar_url }}">Download TAR</a></li>
-          {% endif %}
-          <li><a class="buttons github" href="{{ site.github.repository_url }}">View On GitHub</a></li>
-        </ul>
-
-        {% if site.github.is_project_page %}
-          <p class="header">This project is maintained by <a class="header name" href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-        {% endif %}
-
-        {% if site.github.is_user_page %}
-          <ul>
-            <li><a class="buttons github" href="{{ site.github.owner_url }}">GitHub Profile</a></li>
-          </ul>
-        {% endif %}
+        <div style="text-align: center; padding: 20px 0;">
+          <img src="LOGO%20LAGAX.jpg" alt="LAGAX Logo" style="max-width: 180px; width: 80%; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); margin-bottom: 15px;">
+          <h1 class="header" style="margin: 15px 0 5px 0; font-size: 2.2rem; letter-spacing: 2px;">{{ site.title }}</h1>
+          <p style="color: #667eea; font-weight: 600; margin: 0; font-size: 0.95rem;">Tu Comercializadora de Confianza</p>
+        </div>
       </header>
 
       <section>
