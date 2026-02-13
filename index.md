@@ -25,21 +25,226 @@ Tu comercializadora de confianza
 
 Somos **Lagax**, tu comercializadora de confianza. Con años de experiencia en el sector, nos dedicamos a proporcionar soluciones comerciales de alta calidad.
 
-## Misión {#mision}
+<style>
+.info-cards-container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+}
 
-En Productos y Servicios Lagax proveemos partes y servicios para la industria, asegurando que cada producto cumpla con las especificaciones de calidad requeridas por el cliente, en el tiempo adecuado y en las cantidades necesarias, con el objetivo de garantizar su satisfacción mediante un enfoque de mejora continua.
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
 
-## Visión {#vision}
+.info-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
 
-Ser la empresa comercializadora industrial más estratégica y confiable del país, reconocida por su alta calidad, agilidad operativa y capacidad para convertirnos en socios clave de nuestros clientes, contribuyendo a su crecimiento y a la solución eficiente de sus necesidades.
+.info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
 
-## Valores {#valores}
+.info-card:hover::before {
+  transform: scaleX(1);
+}
 
-- **Sentido de urgencia** - Actuamos con rapidez y enfoque en resultados, priorizando las necesidades del cliente.
-- **Amabilidad** - Fomentamos relaciones basadas en el trato cordial, la empatía y el servicio.
-- **Creatividad** - Buscamos soluciones innovadoras ante los retos del mercado y de nuestros clientes.
-- **Autoexigencia** - Trabajamos con altos estándares de desempeño y calidad en cada actividad que realizamos.
-- **Respeto** - Promovemos relaciones profesionales basadas en la consideración y la colaboración mutua.
+.info-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.info-card-icon {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  display: block;
+  text-align: center;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover .info-card-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.info-card-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.info-card-content {
+  color: #555;
+  line-height: 1.8;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.valores-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.valores-card .info-card-title {
+  color: white;
+  -webkit-text-fill-color: white;
+}
+
+.valores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.valor-item {
+  background: rgba(255,255,255,0.15);
+  padding: 25px 20px;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.valor-item:hover {
+  background: rgba(255,255,255,0.25);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.valor-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  display: block;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+}
+
+.valor-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.valor-description {
+  font-size: 0.95rem;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .valores-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .info-card {
+    padding: 30px 20px;
+  }
+  
+  .info-card-icon {
+    font-size: 2.8rem;
+  }
+  
+  .info-card-title {
+    font-size: 1.5rem;
+  }
+}
+</style>
+
+<div class="info-cards-container">
+  <div class="info-grid">
+    
+    <div class="info-card" id="mision">
+      <span class="info-card-icon">🎯</span>
+      <div class="info-card-title">Misión</div>
+      <div class="info-card-content">
+        En Productos y Servicios Lagax proveemos partes y servicios para la industria, asegurando que cada producto cumpla con las especificaciones de calidad requeridas por el cliente, en el tiempo adecuado y en las cantidades necesarias, con el objetivo de garantizar su satisfacción mediante un enfoque de mejora continua.
+      </div>
+    </div>
+
+    <div class="info-card" id="vision">
+      <span class="info-card-icon">🚀</span>
+      <div class="info-card-title">Visión</div>
+      <div class="info-card-content">
+        Ser la empresa comercializadora industrial más estratégica y confiable del país, reconocida por su alta calidad, agilidad operativa y capacidad para convertirnos en socios clave de nuestros clientes, contribuyendo a su crecimiento y a la solución eficiente de sus necesidades.
+      </div>
+    </div>
+
+    <div class="info-card valores-card" id="valores">
+      <span class="info-card-icon">💎</span>
+      <div class="info-card-title">Nuestros Valores</div>
+      <div class="valores-grid">
+        
+        <div class="valor-item">
+          <span class="valor-icon">⚡</span>
+          <div class="valor-title">Sentido de Urgencia</div>
+          <div class="valor-description">Actuamos con rapidez y enfoque en resultados, priorizando las necesidades del cliente.</div>
+        </div>
+
+        <div class="valor-item">
+          <span class="valor-icon">🤝</span>
+          <div class="valor-title">Amabilidad</div>
+          <div class="valor-description">Fomentamos relaciones basadas en el trato cordial, la empatía y el servicio.</div>
+        </div>
+
+        <div class="valor-item">
+          <span class="valor-icon">💡</span>
+          <div class="valor-title">Creatividad</div>
+          <div class="valor-description">Buscamos soluciones innovadoras ante los retos del mercado y de nuestros clientes.</div>
+        </div>
+
+        <div class="valor-item">
+          <span class="valor-icon">🎖️</span>
+          <div class="valor-title">Autoexigencia</div>
+          <div class="valor-description">Trabajamos con altos estándares de desempeño y calidad en cada actividad que realizamos.</div>
+        </div>
+
+        <div class="valor-item">
+          <span class="valor-icon">🌟</span>
+          <div class="valor-title">Respeto</div>
+          <div class="valor-description">Promovemos relaciones profesionales basadas en la consideración y la colaboración mutua.</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
 
 ## Nuestros Productos y Servicios {#productos-servicios}
 
