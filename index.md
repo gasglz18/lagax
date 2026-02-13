@@ -536,7 +536,7 @@ startAutoplay();
 
 ### Nuestras Áreas de Servicio
 
-En **Lagax** brindamos servicios de **comercialización industrial, importación y exportación** en las principales ciudades del noreste de México:
+En **Lagax** brindamos servicios de **comercialización industrial, importación y exportación** en las principales ciudades del centro y noreste de México:
 
 <style>
 .ubicaciones-grid {
@@ -616,16 +616,23 @@ En **Lagax** brindamos servicios de **comercialización industrial, importación
     <div class="ubicacion-estado">Coahuila</div>
     <div class="ubicacion-servicios">Distribución • Exportación • Logística • Soluciones Comerciales</div>
   </div>
+  
+  <div class="ubicacion-card">
+    <span class="ubicacion-icon">📍</span>
+    <div class="ubicacion-ciudad">Aguascalientes</div>
+    <div class="ubicacion-estado">Aguascalientes</div>
+    <div class="ubicacion-servicios">Impo-Export • Logística Internacional • Asesorías Comerciales</div>
+  </div>
 </div>
 
 #### Servicios Disponibles en Toda la Región
 
-Como **comercializadora industrial** líder en el noreste de México, ofrecemos:
+Como **comercializadora industrial** líder en el centro y noreste de México, ofrecemos:
 
 - ✅ **Importación y Exportación** remota con seguimiento completo
 - ✅ **Logística Impo-Export** especializada para la industria
-- ✅ **Distribución de productos industriales** en Monterrey, Saltillo y Torreón
-- ✅ **Asesorías comerciales** personalizadas en Nuevo León y Coahuila
+- ✅ **Distribución de productos industriales** en Monterrey, Saltillo, Torreón y Aguascalientes
+- ✅ **Asesorías comerciales** personalizadas en Nuevo León, Coahuila y Aguascalientes
 - ✅ **Servicios de soldadura y pailería** industrial
 - ✅ **Soluciones financieras** para proyectos industriales
 
