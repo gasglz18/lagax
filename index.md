@@ -541,7 +541,8 @@ Visítanos en nuestras sucursales ubicadas estratégicamente para servir mejor a
 ¿Tienes preguntas o deseas conocer más sobre nuestros servicios? Ponte en contacto con nosotros:
 
 - **Teléfono**: +34 XXX XXX XXX
-- **Email**: [direccion@lagax.shop](mailto:direccion@lagax.shop) | [rafael.carrillo@lagax.shop](mailto:rafael.carrillo@lagax.shop)
+- **Email**: [direccion@lagax.shop](mailto:direccion@lagax.shop)
+- **Email**: [rafael.carrillo@lagax.shop](mailto:rafael.carrillo@lagax.shop)
 - **Web**: www.lagax.shop
 
 ---
