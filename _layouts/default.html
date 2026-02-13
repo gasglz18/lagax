@@ -32,9 +32,9 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#quienes-somos" id="navbarQuienesSomos" role="button" data-bs-toggle="dropdown">Quiénes Somos</a>
               <ul class="dropdown-menu" aria-labelledby="navbarQuienesSomos">
-                <li><a class="dropdown-item" href="#mision">Misión</a></li>
-                <li><a class="dropdown-item" href="#vision">Visión</a></li>
-                <li><a class="dropdown-item" href="#valores">Valores</a></li>
+                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#misionModal">Misión</a></li>
+                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#visionModal">Visión</a></li>
+                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#valoresModal">Valores</a></li>
               </ul>
             </li>
             <li class="nav-item"><a class="nav-link" href="#productos-servicios">Servicios</a></li>
@@ -64,6 +64,72 @@
         <p class="mb-0"><small>Comercializadora Industrial | Importación • Exportación • Logística</small></p>
       </div>
     </footer>
+
+    <!-- Modales para Misión, Visión y Valores -->
+    
+    <!-- Modal Misión -->
+    <div class="modal fade" id="misionModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+            <h5 class="modal-title"><i class="fas fa-bullseye me-2"></i>Misión</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #333;">
+              En <strong>Productos y Servicios Lagax</strong> proveemos partes y servicios para la industria, asegurando que cada producto cumpla con las especificaciones de calidad requeridas por el cliente, en el tiempo adecuado y en las cantidades necesarias, con el objetivo de garantizar su satisfacción mediante un enfoque de mejora continua.
+            </p>
+          </div>
+          <div class="modal-footer border-top-0">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Visión -->
+    <div class="modal fade" id="visionModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+            <h5 class="modal-title"><i class="fas fa-rocket me-2"></i>Visión</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #333;">
+              Ser la empresa comercializadora industrial más estratégica y confiable del país, reconocida por su alta calidad, agilidad operativa y capacidad para convertirnos en socios clave de nuestros clientes, contribuyendo a su crecimiento y a la solución eficiente de sus necesidades.
+            </p>
+          </div>
+          <div class="modal-footer border-top-0">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Valores -->
+    <div class="modal fade" id="valoresModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+            <h5 class="modal-title"><i class="fas fa-gem me-2"></i>Valores</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <ul style="font-size: 1.05rem; line-height: 2; color: #333; list-style: none; padding: 0;">
+              <li><strong style="color: #667eea;">⚡ Sentido de Urgencia:</strong> Actuamos con rapidez y enfoque en resultados, priorizando las necesidades del cliente.</li>
+              <li><strong style="color: #667eea;">🤝 Amabilidad:</strong> Fomentamos relaciones basadas en el trato cordial, la empatía y el servicio.</li>
+              <li><strong style="color: #667eea;">💡 Creatividad:</strong> Buscamos soluciones innovadoras ante los retos del mercado y de nuestros clientes.</li>
+              <li><strong style="color: #667eea;">🎖️ Autoexigencia:</strong> Trabajamos con altos estándares de desempeño y calidad en cada actividad que realizamos.</li>
+              <li><strong style="color: #667eea;">🌟 Respeto:</strong> Promovemos relaciones profesionales basadas en la consideración y la colaboración mutua.</li>
+            </ul>
+          </div>
+          <div class="modal-footer border-top-0">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
