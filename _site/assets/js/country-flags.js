@@ -1,4 +1,4 @@
-// Mostrar banderas de países visitantes (almacenamiento global compartido)
+// Mostrar banderas de países visitantes (sistema simplificado y robusto)
 function initCountryFlags() {
   const flagsElement = document.getElementById('country-flags');
   if (!flagsElement) {
@@ -8,12 +8,11 @@ function initCountryFlags() {
 
   console.log('🚩 Iniciando sistema de banderas de países...');
 
-  // ID único para tu sitio en kvdb.io (almacenamiento compartido gratuito)
-  const KVDB_BUCKET = 'Ap6EfdBQDbZtbVMVwRjYFN';
-  const KVDB_KEY = 'lagax-countries';
+  // Usar localStorage para almacenar países visitados (simple y confiable)
+  const STORAGE_KEY = 'lagax-visited-countries-v2';
   
-  // Timeout para las peticiones (10 segundos)
-  const TIMEOUT = 10000;
+  // Timeout para las peticiones
+  const TIMEOUT = 5000;
   
   // Función para fetch con timeout
   function fetchWithTimeout(url, options = {}, timeout = TIMEOUT) {
@@ -67,6 +66,14 @@ function initCountryFlags() {
   // Mostrar estado de "buscando..." inmediatamente
   flagsElement.innerHTML = '<span style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">🔍 Detectando país...</span>';
 
+  // Timeout global - si después de 8 segundos no hay resultado, mostrar banderas guardadas
+  setTimeout(() => {
+    if (flagsElement.innerHTML.includes('Detectando país')) {
+      console.log('⏱️ Timeout alcanzado, mostrando banderas guardadas...');
+      showDefaultFlags();
+    }
+  }, 8000);
+
   // Obtener información del país por IP con múltiples fuentes
   console.log('🌍 Obteniendo información de geolocalización...');
   
@@ -96,8 +103,8 @@ function initCountryFlags() {
         })
         .catch(error2 => {
           console.warn('❌ API alternativa también falló:', error2.message);
-          // Último fallback: solo mostrar banderas existentes
-          loadExistingFlags();
+          // Último fallback: mostrar banderas guardadas localmente
+          showDefaultFlags();
         });
     });
   
@@ -105,100 +112,69 @@ function initCountryFlags() {
   function processCountry(countryCode, countryName) {
     console.log('✅ País detectado:', countryCode, '-', countryName);
     
-    if (countryCode) {
-      // 1. Obtener lista actual de países visitados desde la nube
-      console.log('📡 Consultando países guardados en la nube...');
-      fetchWithTimeout(`https://kvdb.io/${KVDB_BUCKET}/${KVDB_KEY}`, {}, 5000)
-        .then(response => {
-          if (response.ok) {
-            return response.text();
-          }
-          console.log('⚠️ Base de datos vacía, creando nueva...');
-          return '[]'; // Si no existe, lista vacía
-        })
-        .then(data => {
-          let visitedCountries = [];
-          try {
-            visitedCountries = JSON.parse(data);
-            console.log('📋 Países existentes:', visitedCountries);
-          } catch (e) {
-            visitedCountries = [];
-            console.log('⚠️ Error al parsear datos, iniciando lista nueva');
-          }
-          
-          // 2. SOLO agregar bandera si es un país DIFERENTE (no duplicar)
-          const isNewCountry = !visitedCountries.includes(countryCode);
-          
-          if (isNewCountry) {
-            console.log('🆕 Nuevo país detectado! Agregando:', countryCode);
-            // País nuevo detectado - agregar al inicio de la lista
-            visitedCountries.unshift(countryCode);
-            
-            // Mantener máximo 15 países diferentes
-            if (visitedCountries.length > 15) {
-              visitedCountries.pop();
-            }
-            
-            // 3. Guardar lista actualizada en la nube (solo si hay país nuevo)
-            console.log('💾 Guardando en la nube:', visitedCountries);
-            fetchWithTimeout(`https://kvdb.io/${KVDB_BUCKET}/${KVDB_KEY}`, {
-              method: 'POST',
-              body: JSON.stringify(visitedCountries),
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            }, 5000)
-              .then(() => console.log('✅ Guardado exitoso en la nube'))
-              .catch(err => console.warn('❌ Error al guardar países:', err));
-          } else {
-            console.log('ℹ️ País ya existe en la lista, no se agrega duplicado');
-          }
-          
-          // 4. Mostrar todas las banderas acumuladas (sin duplicados)
-          console.log('🎌 Mostrando', visitedCountries.length, 'banderas');
-          displayFlags(visitedCountries);
-        })
-        .catch(error => {
-          console.warn('❌ Error al obtener países desde la nube:', error);
-          // Fallback: mostrar solo el país actual y guardarlo
-          displayFlags([countryCode]);
-          // Intentar inicializar la base de datos en la nube
-          console.log('🔄 Intentando inicializar base de datos...');
-          fetchWithTimeout(`https://kvdb.io/${KVDB_BUCKET}/${KVDB_KEY}`, {
-            method: 'POST',
-            body: JSON.stringify([countryCode]),
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          }, 5000)
-            .then(() => console.log('✅ Base de datos inicializada'))
-            .catch(err => console.warn('❌ Error al inicializar países:', err));
-        });
-    } else {
+    if (!countryCode) {
       console.warn('⚠️ No se pudo detectar código de país');
-      displayFlags([]);
+      showDefaultFlags();
+      return;
     }
+    
+    // Obtener países visitados del localStorage
+    let visitedCountries = [];
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        visitedCountries = JSON.parse(stored);
+      }
+    } catch (e) {
+      console.warn('Error al leer localStorage:', e);
+      visitedCountries = [];
+    }
+    
+    // Agregar país actual si no existe (sin duplicados)
+    const isNewCountry = !visitedCountries.includes(countryCode);
+    if (isNewCountry) {
+      console.log('🆕 Nuevo país detectado! Agregando:', countryCode);
+      visitedCountries.unshift(countryCode);
+      
+      // Mantener máximo 15 países
+      if (visitedCountries.length > 15) {
+        visitedCountries.pop();
+      }
+      
+      // Guardar en localStorage
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(visitedCountries));
+      } catch (e) {
+        console.warn('Error al guardar en localStorage:', e);
+      }
+      
+      // Registrar país en CountAPI (compartido globalmente)
+      fetch(`https://api.countapi.xyz/hit/lagax.shop/country-${countryCode}`)
+        .then(r => r.json())
+        .then(d => console.log(`📊 País ${countryCode} registrado globalmente:`, d.value, 'visitas'))
+        .catch(err => console.warn('Error al registrar país en CountAPI:', err));
+    } else {
+      console.log('ℹ️ País ya existe en la lista local');
+    }
+    
+    // Mostrar banderas
+    console.log('🎌 Mostrando', visitedCountries.length, 'banderas');
+    displayFlags(visitedCountries);
   }
   
-  // Función para cargar solo las banderas existentes (sin agregar nuevo país)
-  function loadExistingFlags() {
-    console.log('📡 Cargando banderas existentes sin agregar país...');
-    fetchWithTimeout(`https://kvdb.io/${KVDB_BUCKET}/${KVDB_KEY}`, {}, 5000)
-      .then(response => response.ok ? response.text() : '[]')
-      .then(data => {
-        try {
-          const visitedCountries = JSON.parse(data);
-          console.log('📋 Mostrando países existentes:', visitedCountries);
+  // Función para mostrar banderas por defecto
+  function showDefaultFlags() {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      try {
+        const visitedCountries = JSON.parse(stored);
+        if (visitedCountries.length > 0) {
           displayFlags(visitedCountries);
-        } catch (e) {
-          console.warn('❌ Error al cargar banderas:', e);
-          flagsElement.innerHTML = '<span style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">🌍 Esperando visitantes...</span>';
+          return;
         }
-      })
-      .catch(error => {
-        console.warn('❌ Error de conexión:', error);
-        flagsElement.innerHTML = '<span style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">🌍 Conectando...</span>';
-      });
+      } catch (e) {}
+    }
+    flagsElement.innerHTML = '<span style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">🌍 Esperando visitantes...</span>';
   }
 }
 
