@@ -47,18 +47,25 @@ function initCountryFlags() {
       flagsHTML += `<span title="Visitante de ${code}" style="font-size: 1.5rem; margin: 0 4px; cursor: pointer; transition: transform 0.2s;">${flag}</span>`;
     });
     
-    flagsElement.innerHTML = flagsHTML;
-    
-    // Agregar efecto hover
-    document.querySelectorAll('#country-flags span').forEach(flag => {
-      flag.addEventListener('mouseover', function() {
-        this.style.transform = 'scale(1.3)';
+    if (flagsHTML) {
+      flagsElement.innerHTML = flagsHTML;
+      
+      // Agregar efecto hover
+      document.querySelectorAll('#country-flags span').forEach(flag => {
+        flag.addEventListener('mouseover', function() {
+          this.style.transform = 'scale(1.3)';
+        });
+        flag.addEventListener('mouseout', function() {
+          this.style.transform = 'scale(1)';
+        });
       });
-      flag.addEventListener('mouseout', function() {
-        this.style.transform = 'scale(1)';
-      });
-    });
+    } else {
+      flagsElement.innerHTML = '<span style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">🌍 Esperando visitantes...</span>';
+    }
   }
+  
+  // Mostrar estado de "buscando..." inmediatamente
+  flagsElement.innerHTML = '<span style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">🔍 Detectando país...</span>';
 
   // Obtener información del país por IP con múltiples fuentes
   console.log('🌍 Obteniendo información de geolocalización...');
@@ -77,12 +84,12 @@ function initCountryFlags() {
       console.warn('❌ ipapi.co falló:', error.message);
       console.log('🔄 Intentando con API alternativa...');
       
-      // Fallback: ipwhois.app (sin límite de peticiones)
-      return fetchWithTimeout('http://ipwho.is/', {}, 5000)
+      // Fallback: ipapi.is (HTTPS, gratis, sin límite)
+      return fetchWithTimeout('https://api.ipapi.is/', {}, 5000)
         .then(response => response.json())
         .then(data => {
-          if (data.country_code) {
-            processCountry(data.country_code, data.country || data.country_code);
+          if (data.location && data.location.country_code) {
+            processCountry(data.location.country_code, data.location.country || data.location.country_code);
           } else {
             throw new Error('No country_code en API alternativa');
           }
