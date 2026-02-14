@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /assets/
+
+Sitemap: https://www.lagax.shop/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
