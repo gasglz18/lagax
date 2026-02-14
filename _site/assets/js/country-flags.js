@@ -18,6 +18,11 @@ function initCountryFlags() {
 
   // Función para mostrar las banderas
   function displayFlags(countries) {
+    if (!countries || countries.length === 0) {
+      flagsElement.innerHTML = '<span style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">🌍 Esperando visitantes...</span>';
+      return;
+    }
+    
     let flagsHTML = '';
     countries.forEach(code => {
       const flag = countryCodeToFlag(code);
@@ -86,14 +91,25 @@ function initCountryFlags() {
             displayFlags(visitedCountries);
           })
           .catch(error => {
-            console.warn('Error al obtener países:', error);
-            // Fallback: mostrar solo el país actual
+            console.warn('Error al obtener países desde la nube:', error);
+            // Fallback: mostrar solo el país actual y guardarlo
             displayFlags([countryCode]);
+            // Intentar inicializar la base de datos en la nube
+            fetch(`https://kvdb.io/${KVDB_BUCKET}/${KVDB_KEY}`, {
+              method: 'POST',
+              body: JSON.stringify([countryCode]),
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            }).catch(err => console.warn('Error al inicializar países:', err));
           });
+      } else {
+        displayFlags([]);
       }
     })
     .catch(error => {
       console.warn('Error al obtener datos de geolocalización:', error);
+      flagsElement.innerHTML = '<span style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">🌍 Conectando...</span>';
     });
 }
 
