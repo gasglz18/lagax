@@ -3,58 +3,150 @@
 
 @import 'jekyll-theme-dinky';
 
-/* Banda dinámica de mensaje */
-.scrolling-banner {
+/* Banda de mensaje animado tipo GIF */
+.message-banner {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   background-color: #000;
-  overflow: hidden;
   z-index: 1000;
-  padding: 20px 0;
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+  padding: 25px 0;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.5);
 }
 
-.word-display {
+.word-container {
+  position: relative;
   text-align: center;
+  height: 60px;
   width: 100%;
 }
 
-.animated-word {
-  display: inline-block;
+.word {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: #ff0000;
   font-size: 2.5rem;
   font-weight: 700;
-  text-shadow: 3px 3px 6px rgba(128, 128, 128, 0.8);
+  text-shadow: 3px 3px 6px rgba(128, 128, 128, 0.9);
   letter-spacing: 3px;
   text-transform: uppercase;
-  animation: fadeInOut 0.5s ease-in-out;
+  opacity: 0;
+  width: 100%;
 }
 
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  100% {
+/* Animación: cada palabra aparece 2 segundos, total 8 segundos por ciclo */
+.word-1 {
+  animation: showWord 8s infinite;
+}
+
+.word-2 {
+  animation: showWord 8s infinite 2s;
+}
+
+.word-3 {
+  animation: showWord 8s infinite 4s;
+}
+
+.word-4 {
+  animation: showWord 8s infinite 6s;
+}
+
+@keyframes showWord {
+  0%, 23% {
     opacity: 1;
-    transform: scale(1);
+  }
+  25%, 100% {
+    opacity: 0;
   }
 }
 
-/* Ajuste para el contenido principal para que no quede detrás de la banda */
 body {
-  padding-bottom: 70px;
+  padding-bottom: 110px;
 }
 
 @media (max-width: 768px) {
-  .banner-text {
-    font-size: 1.3rem;
-    padding: 0 30px;
+  .word {
+    font-size: 1.8rem;
   }
   
   body {
-    padding-bottom: 60px;
+    padding-bottom: 100px;
+  }
+}
+
+/* Banda de mensaje animado tipo GIF */
+.message-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  z-index: 1000;
+  padding: 25px 0;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.word-container {
+  position: relative;
+  text-align: center;
+  height: 60px;
+  width: 100%;
+}
+
+.word {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ff0000;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 3px 3px 6px rgba(128, 128, 128, 0.9);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0;
+  width: 100%;
+}
+
+/* Animación: cada palabra aparece 2 segundos, total 8 segundos por ciclo */
+.word-1 {
+  animation: showWord 8s infinite;
+}
+
+.word-2 {
+  animation: showWord 8s infinite 2s;
+}
+
+.word-3 {
+  animation: showWord 8s infinite 4s;
+}
+
+.word-4 {
+  animation: showWord 8s infinite 6s;
+}
+
+@keyframes showWord {
+  0%, 23% {
+    opacity: 1;
+  }
+  25%, 100% {
+    opacity: 0;
+  }
+}
+
+body {
+  padding-bottom: 110px;
+}
+
+@media (max-width: 768px) {
+  .word {
+    font-size: 1.8rem;
+  }
+  
+  body {
+    padding-bottom: 100px;
   }
 }
