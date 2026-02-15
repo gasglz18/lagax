@@ -7,13 +7,13 @@ title: Lagax - Tu Comercializadora
   <img src="LOGO%20LAGAX.jpg" loading="lazy" alt="Logo Lagax" class="lagax-logo">
 </div>
 
-# Productos y Servicios Lagax
-
-## Tu Comercializadora de Confianza
-
-## Quiénes somos {#quienes-somos}
-
-Somos **Lagax**, tu comercializadora de confianza. Con años de experiencia en el sector, nos dedicamos a proporcionar soluciones comerciales de alta calidad.
+<div class="hero-card">
+  <h1 class="hero-title">Productos y Servicios Lagax</h1>
+  <h2 class="hero-subtitle">Tu Comercializadora de Confianza</h2>
+  <div class="hero-divider"></div>
+  <h3 class="hero-section-title" id="quienes-somos">Quiénes somos</h3>
+  <p class="hero-description">Somos <strong>Lagax</strong>, tu comercializadora de confianza. Con años de experiencia en el sector, nos dedicamos a proporcionar soluciones comerciales de alta calidad.</p>
+</div>
 
 <style>
 .lagax-logo-container {
@@ -36,6 +36,117 @@ Somos **Lagax**, tu comercializadora de confianza. Con años de experiencia en e
   transform: translateY(-15px) scale(1.15);
   box-shadow: 0 20px 50px rgba(102, 126, 234, 0.6), 0 0 30px rgba(118, 75, 162, 0.3);
   filter: brightness(1.1) drop-shadow(0 10px 20px rgba(102, 126, 234, 0.5));
+}
+
+/* Hero Card - Estilo flotante */
+.hero-card {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 50px 40px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.15);
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-color, #667eea) 0%, var(--secondary-color, #764ba2) 100%);
+}
+
+.hero-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.25);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.hero-divider {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  margin: 30px auto;
+  border-radius: 2px;
+}
+
+.hero-section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.dark-mode .hero-card {
+  background: var(--bg-dark, #1a202c);
+  color: var(--text-light, #f7fafc);
+}
+
+.dark-mode .hero-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dark-mode .hero-description {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+  .hero-card {
+    padding: 30px 25px;
+    margin: 20px 15px;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .hero-section-title {
+    font-size: 1.4rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
 }
 
 .info-cards-container {
