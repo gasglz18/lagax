@@ -1,5 +1,7 @@
-// Matrix-style banner with multilingual messages
-document.addEventListener('DOMContentLoaded', function() {
+// Matrix-style banner with multilingual messages - v2
+(function() {
+  'use strict';
+  
   const messages = [
     'Estamos listos para servirte',  // Español
     'We are ready to serve you',      // Inglés
@@ -14,16 +16,24 @@ document.addEventListener('DOMContentLoaded', function() {
   ];
   
   let currentIndex = 0;
-  const textElements = document.querySelectorAll('.matrix-text');
   
-  if (textElements.length > 0) {
-    // Cambiar el mensaje cada 5 segundos en TODOS los elementos simultáneamente
-    setInterval(function() {
+  function updateAllTexts() {
+    const textElements = document.querySelectorAll('.matrix-text');
+    if (textElements.length > 0) {
       currentIndex = (currentIndex + 1) % messages.length;
-      // Actualizar todos los elementos con clase .matrix-text
       textElements.forEach(function(element) {
         element.textContent = messages[currentIndex] + ' • ';
       });
-    }, 5000);
+      console.log('Idioma actualizado a: ' + messages[currentIndex]);
+    }
   }
-});
+  
+  // Esperar a que el DOM esté completamente cargado
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      setInterval(updateAllTexts, 5000);
+    });
+  } else {
+    setInterval(updateAllTexts, 5000);
+  }
+})();
