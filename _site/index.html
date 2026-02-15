@@ -749,21 +749,75 @@ startAutoplay();
   </div>
 </div>
 
-<h4 id="servicios-disponibles-en-toda-la-región">Servicios Disponibles en Toda la Región</h4>
+<div class="hero-card servicios-hero">
+  <h3 class="hero-section-title">Servicios Disponibles en Toda la Región</h3>
+  <div class="hero-divider"></div>
+  <p class="hero-description" style="margin-bottom: 30px;">Como <strong>comercializadora industrial</strong> líder, ofrecemos:</p>
+  
+  <div class="servicios-list">
+    <div class="servicio-item">✅ <strong>Importación y Exportación</strong> con seguimiento completo</div>
+    <div class="servicio-item">✅ <strong>Logística Impo-Export</strong> especializada</div>
+    <div class="servicio-item">✅ <strong>Distribución de productos industriales</strong></div>
+    <div class="servicio-item">✅ <strong>Asesorías comerciales</strong> personalizadas</div>
+    <div class="servicio-item">✅ <strong>Servicios de soldadura y pailería</strong></div>
+    <div class="servicio-item">✅ <strong>Soluciones financieras</strong> para proyectos</div>
+    <div class="servicio-item">✅ <strong>Soluciones de Software</strong> a la medida del cliente</div>
+  </div>
+  
+  <p class="hero-description" style="margin-top: 30px; font-style: italic; color: #667eea;">Contáctanos para conocer cómo podemos ayudarte con tus necesidades de comercialización.</p>
+</div>
 
-<p>Como <strong>comercializadora industrial</strong> líder, ofrecemos:</p>
+<style>
+.servicios-hero {
+  margin: 50px auto;
+}
 
-<ul>
-  <li>✅ <strong>Importación y Exportación</strong> con seguimiento completo</li>
-  <li>✅ <strong>Logística Impo-Export</strong> especializada</li>
-  <li>✅ <strong>Distribución de productos industriales</strong></li>
-  <li>✅ <strong>Asesorías comerciales</strong> personalizadas</li>
-  <li>✅ <strong>Servicios de soldadura y pailería</strong></li>
-  <li>✅ <strong>Soluciones financieras</strong> para proyectos</li>
-  <li>✅ <strong>Soluciones de Software</strong> a la medida del cliente</li>
-</ul>
+.servicios-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-<p>Contáctanos para conocer cómo podemos ayudarte con tus necesidades de comercialización.</p>
+.servicio-item {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  padding: 10px 15px;
+  border-left: 3px solid #667eea;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.servicio-item:hover {
+  background: rgba(102, 126, 234, 0.1);
+  transform: translateX(5px);
+  border-left-color: #764ba2;
+}
+
+.dark-mode .servicio-item {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(102, 126, 234, 0.15);
+}
+
+.dark-mode .servicio-item:hover {
+  background: rgba(102, 126, 234, 0.25);
+}
+
+@media (max-width: 768px) {
+  .servicios-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .servicio-item {
+    font-size: 0.95rem;
+  }
+}
+</style>
 
 <h2 id="contactanos">Contáctanos</h2>
 
