@@ -1,19 +1,8 @@
-// Custom form submission to Google Forms
+// Custom form submission to Google Sheets via Apps Script
 (function() {
   'use strict';
   
-  const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSc0RrW42VsccmbIpsoUJw-KAe62wWeOhCJL3N7hdqIMS9n1yA/formResponse';
-  
-  // Field mappings from your Google Form
-  const FIELD_IDS = {
-    nombre: 'entry.1633920210',
-    email: 'entry.227649005',
-    direccion: 'entry.790080973',
-    telefono: 'entry.1770822543',
-    presupuesto: 'entry.1846923513',
-    horario: 'entry.1242266990',
-    necesidad: 'entry.1198873492'
-  };
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwA8siBlH6RvFj8OgKuot-StMsCQ1INdytCOT6ycyFTfM0xtak4jNFQsoQjP9k6aiQC/exec';
   
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('lagax-custom-form');
@@ -28,26 +17,27 @@
       
       // Disable submit button
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Enviando...';
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
       
       // Get form data
-      const formData = new FormData();
-      formData.append(FIELD_IDS.nombre, document.getElementById('nombre').value);
-      formData.append(FIELD_IDS.email, document.getElementById('email').value);
-      formData.append(FIELD_IDS.direccion, document.getElementById('direccion').value);
-      formData.append(FIELD_IDS.telefono, document.getElementById('telefono').value);
-      formData.append(FIELD_IDS.presupuesto, document.getElementById('presupuesto').value);
-      formData.append(FIELD_IDS.horario, document.getElementById('horario').value);
-      formData.append(FIELD_IDS.necesidad, document.getElementById('necesidad').value);
+      const formData = {
+        nombre: document.getElementById('nombre').value,
+        email: document.getElementById('email').value,
+        direccion: document.getElementById('direccion').value,
+        telefono: document.getElementById('telefono').value,
+        presupuesto: document.getElementById('presupuesto').value,
+        horario: document.getElementById('horario').value,
+        necesidad: document.getElementById('necesidad').value
+      };
       
-      // Send to Google Form using fetch with no-cors mode
-      fetch(GOOGLE_FORM_ACTION, {
+      // Send to Google Sheets via Apps Script
+      fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
         },
-        body: new URLSearchParams(formData).toString()
+        body: JSON.stringify(formData)
       })
       .then(function() {
         // Show success message
@@ -58,7 +48,7 @@
         // Re-enable button after a delay
         setTimeout(function() {
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Enviar';
+          submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar';
           successMsg.style.display = 'none';
         }, 5000);
       })
@@ -69,7 +59,7 @@
         successMsg.style.display = 'none';
         
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Enviar';
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar';
       });
     });
   });
