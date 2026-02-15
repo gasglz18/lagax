@@ -543,7 +543,7 @@ startAutoplay();
 
 ## Contáctanos {#contactanos}
 
-¿Tienes preguntas o deseas conocer más sobre nuestros servicios? Ponte en contacto con nosotros:
+¿Tienes preguntas o deseas conocer más acerca de nuestros servicios? Contáctanos:
 
 - **Teléfono**: +34 XXX XXX XXX
 - **Email**: [direccion@lagax.shop](mailto:direccion@lagax.shop)
