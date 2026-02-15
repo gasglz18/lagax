@@ -584,7 +584,7 @@ startAutoplay();
       </div>
       
       <div class="form-group full-width">
-        <label for="presupuesto">¿Su proyecto es de ahorro? ¿Tiene rango de precio específico? <span class="required">*</span></label>
+        <label for="presupuesto">¿Cuál es su rango de precio deseado y presupuesto? <span class="required">*</span></label>
         <textarea id="presupuesto" name="presupuesto" rows="2" required></textarea>
       </div>
       
