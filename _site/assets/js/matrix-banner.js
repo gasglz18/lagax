@@ -14,13 +14,16 @@ document.addEventListener('DOMContentLoaded', function() {
   ];
   
   let currentIndex = 0;
-  const textElement = document.querySelector('.matrix-text');
+  const textElements = document.querySelectorAll('.matrix-text');
   
-  if (textElement) {
-    // Cambiar el mensaje cada 5 segundos
+  if (textElements.length > 0) {
+    // Cambiar el mensaje cada 5 segundos en TODOS los elementos simultáneamente
     setInterval(function() {
       currentIndex = (currentIndex + 1) % messages.length;
-      textElement.textContent = messages[currentIndex] + ' • ';
+      // Actualizar todos los elementos con clase .matrix-text
+      textElements.forEach(function(element) {
+        element.textContent = messages[currentIndex] + ' • ';
+      });
     }, 5000);
   }
 });
