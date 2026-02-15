@@ -551,11 +551,57 @@ startAutoplay();
 
 ---
 
-<div class="gform-wrap">
-  <p style="text-align:center;margin-bottom:8px;"><strong>Formulario de contacto (Google Forms)</strong></p>
-  <div class="gform-iframe">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc0RrW42VsccmbIpsoUJw-KAe62wWeOhCJL3N7hdqIMS9n1yA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
-  </div>
-  <p style="text-align:center;margin-top:8px;font-size:0.95rem;">Si tienes problemas para enviar aquí, <a href="https://docs.google.com/forms/d/e/1FAIpQLSc0RrW42VsccmbIpsoUJw-KAe62wWeOhCJL3N7hdqIMS9n1yA/viewform" target="_blank" rel="noopener">abre el formulario en otra pestaña</a>.</p>
+<div class="custom-form-container">
+  <form id="lagax-custom-form" class="lagax-form">
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="nombre">Nombre <span class="required">*</span></label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Correo electrónico <span class="required">*</span></label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="telefono">Número de teléfono <span class="required">*</span></label>
+        <input type="tel" id="telefono" name="telefono" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="horario">¿A qué hora lo podemos contactar y qué medio? <span class="required">*</span></label>
+        <input type="text" id="horario" name="horario" required placeholder="Ej: Por la tarde, WhatsApp">
+      </div>
+      
+      <div class="form-group full-width">
+        <label for="direccion">Dirección <span class="required">*</span></label>
+        <textarea id="direccion" name="direccion" rows="2" required></textarea>
+      </div>
+      
+      <div class="form-group full-width">
+        <label for="presupuesto">¿Su proyecto es de ahorro? ¿Tiene rango de precio específico? <span class="required">*</span></label>
+        <textarea id="presupuesto" name="presupuesto" rows="2" required></textarea>
+      </div>
+      
+      <div class="form-group full-width">
+        <label for="necesidad">¿Cuál es su necesidad? <span class="required">*</span></label>
+        <textarea id="necesidad" name="necesidad" rows="3" required></textarea>
+      </div>
+    </div>
+    
+    <div class="form-messages">
+      <div id="successMessage" class="success-message" style="display: none;">
+        <i class="fas fa-check-circle"></i> ¡Gracias! Tu mensaje ha sido enviado exitosamente. Nos pondremos en contacto contigo pronto.
+      </div>
+      <div id="errorMessage" class="error-message" style="display: none;">
+        <i class="fas fa-exclamation-circle"></i> Hubo un problema al enviar el formulario. <a href="https://docs.google.com/forms/d/e/1FAIpQLSc0RrW42VsccmbIpsoUJw-KAe62wWeOhCJL3N7hdqIMS9n1yA/viewform" target="_blank" rel="noopener">Prueba aquí</a>.
+      </div>
+    </div>
+    
+    <button type="submit" id="submitBtn" class="submit-btn">
+      <i class="fas fa-paper-plane"></i> Enviar
+    </button>
+  </form>
 </div>
 
