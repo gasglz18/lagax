@@ -398,13 +398,18 @@ function handleSwipe() {
 startAutoplay();
 </script>
 
-## Ubicaciones {#ubicaciones}
-
-### Nuestras Áreas de Servicio
-
-En **Lagax** brindamos servicios de **comercialización industrial, importación y exportación** en las principales ciudades del centro y noreste de México:
+<div class="hero-card ubicaciones-hero">
+  <h2 class="hero-title">Ubicaciones</h2>
+  <h3 class="hero-subtitle">Nuestras Áreas de Servicio</h3>
+  <div class="hero-divider"></div>
+  <p class="hero-description">En <strong>Lagax</strong> brindamos servicios de <strong>comercialización industrial, importación y exportación</strong> en las principales ciudades del centro y noreste de México:</p>
+</div>
 
 <style>
+.ubicaciones-hero {
+  margin-bottom: 50px;
+}
+
 .ubicaciones-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -437,7 +442,7 @@ En **Lagax** brindamos servicios de **comercialización industrial, importación
 }
 </style>
 
-<div class="ubicaciones-grid">
+<div class="ubicaciones-grid" id="ubicaciones">
   <div class="ubicacion-card">
     <span class="ubicacion-icon">📍</span>
     <div class="ubicacion-ciudad">Monterrey</div>
