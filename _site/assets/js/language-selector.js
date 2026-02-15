@@ -1,55 +1,158 @@
-// Simple language selector - opens Google Translate
-function changeLanguage(lang) {
-  console.log('Opening translation for:', lang);
+// Translation using LibreTranslate API (100% free, no API key needed)
+const LIBRE_TRANSLATE_API = 'https://api.mymemory.translated.net/get';
+
+// Language mapping
+const langMap = {
+  'es': { name: 'Español', code: 'es' },
+  'en': { name: 'English', code: 'en' },
+  'pt': { name: 'Português', code: 'pt' },
+  'de': { name: 'Deutsch', code: 'de' },
+  'zh-CN': { name: '中文', code: 'zh-CN' }
+};
+
+let currentLanguage = 'es';
+let originalTexts = {};
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Language selector initialized');
   
-  // Save preference
-  localStorage.setItem('selectedLanguage', lang);
+  // Store original Spanish text
+  storeOriginalTexts();
   
-  // Language mapping for Google Translate
-  const langMap = {
-    'es': 'es',
-    'en': 'en',
-    'pt': 'pt',
-    'de': 'de',
-    'zh-CN': 'zh-CN'
-  };
-  
-  const googleLang = langMap[lang] || lang;
-  const currentUrl = window.location.href;
-  
-  // Open Google Translate in the same window
-  const translateUrl = `https://translate.google.com/translate?u=${encodeURIComponent(currentUrl)}&hl=es&tl=${googleLang}`;
-  window.open(translateUrl, '_blank');
-  
-  // Close dropdown
-  try {
-    const dropdown = document.getElementById('languageDropdown');
-    if (dropdown && typeof bootstrap !== 'undefined') {
-      bootstrap.Dropdown.getInstance(dropdown)?.hide();
+  // Restore saved language if exists
+  const savedLang = localStorage.getItem('selectedLanguage');
+  if (savedLang && savedLang !== 'es') {
+    setTimeout(() => changeLanguage(savedLang), 500);
+  }
+});
+
+// Store all original text nodes
+function storeOriginalTexts() {
+  const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, label, button, li, span');
+  elements.forEach(el => {
+    if (el.children.length === 0 && el.textContent.trim().length > 0) {
+      originalTexts[el.textContent.trim()] = el.textContent.trim();
     }
-  } catch (e) {
-    console.log('Error closing dropdown');
+  });
+  console.log('Stored', Object.keys(originalTexts).length, 'text nodes');
+}
+
+// Main translation function
+async function changeLanguage(lang) {
+  console.log('Change language to:', lang);
+  
+  localStorage.setItem('selectedLanguage', lang);
+  updateLanguageButton(lang);
+  
+  if (lang === 'es') {
+    // Restore Spanish
+    restoreOriginalTexts();
+    currentLanguage = 'es';
+    console.log('Restored original Spanish content');
+    return;
+  }
+  
+  currentLanguage = lang;
+  
+  // Show loading indicator
+  showLoadingState();
+  
+  try {
+    // Get all translatable elements
+    const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, label, button, li, span, textarea');
+    let translated = 0;
+    
+    for (const el of elements) {
+      // Skip if element has children or is empty
+      if (el.children.length > 0 || !el.textContent.trim()) continue;
+      
+      const originalText = el.textContent.trim();
+      
+      // Skip very short or already non-Spanish text
+      if (originalText.length < 2) continue;
+      
+      try {
+        const translatedText = await translateText(originalText, lang);
+        if (translatedText && translatedText !== originalText) {
+          el.textContent = translatedText;
+          translated++;
+          console.log(`Translated: "${originalText}" → "${translatedText}"`);
+        }
+      } catch (e) {
+        console.log('Error translating:', e);
+      }
+      
+      // Rate limiting
+      await new Promise(resolve => setTimeout(resolve, 50));
+    }
+    
+    console.log('Total translated:', translated);
+  } catch (error) {
+    console.error('Translation error:', error);
+  } finally {
+    hideLoadingState();
   }
 }
 
-// On page load
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('Language selector loaded');
-  const savedLang = localStorage.getItem('selectedLanguage');
-  if (savedLang) {
-    const langMap = {
-      'es': 'Español',
-      'en': 'English',
-      'pt': 'Português',
-      'de': 'Deutsch',
-      'zh-CN': '中文'
-    };
-    const currentLangSpan = document.getElementById('currentLang');
-    if (currentLangSpan && langMap[savedLang]) {
-      currentLangSpan.textContent = langMap[savedLang];
+// Translate single text
+async function translateText(text, targetLang) {
+  try {
+    const response = await fetch(
+      `${LIBRE_TRANSLATE_API}?q=${encodeURIComponent(text)}&langpair=es|${targetLang}`
+    );
+    
+    const data = await response.json();
+    
+    if (data.responseStatus === 200 && data.responseData.translatedText) {
+      return data.responseData.translatedText;
     }
+    
+    return text;
+  } catch (error) {
+    console.error('Translation API error:', error);
+    return text;
   }
-});
+}
+
+// Restore original Spanish text
+function restoreOriginalTexts() {
+  const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, label, button, li, span');
+  elements.forEach(el => {
+    if (el.children.length === 0) {
+      const originalText = Object.keys(originalTexts).find(key => 
+        el.textContent.includes(key.substring(0, 10))
+      );
+      if (originalText) {
+        el.textContent = originalText;
+      }
+    }
+  });
+}
+
+// Update button text
+function updateLanguageButton(lang) {
+  const span = document.getElementById('currentLang');
+  if (span && langMap[lang]) {
+    span.textContent = langMap[lang].name;
+  }
+}
+
+// Loading indicator
+function showLoadingState() {
+  const main = document.querySelector('main');
+  if (main) {
+    main.style.opacity = '0.7';
+    main.style.transition = 'opacity 0.3s';
+  }
+}
+
+function hideLoadingState() {
+  const main = document.querySelector('main');
+  if (main) {
+    main.style.opacity = '1';
+  }
+}
 
 // Make globally available
 window.changeLanguage = changeLanguage;
