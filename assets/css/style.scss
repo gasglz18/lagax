@@ -82,49 +82,38 @@ body {
   }
 }
 
-/* Custom Contact Form Styles */
+/* Custom Contact Form Styles - Hero Card Style */
 .custom-form-container {
-  max-width: 800px;
-  margin: 2rem auto;
+  max-width: 900px;
+  margin: 40px auto;
   padding: 0 1rem;
 }
 
 .lagax-form {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+  padding: 50px 40px;
+  background: #fff;
   border-radius: 20px;
-  padding: 2.5rem;
-  box-shadow: 
-    0 10px 40px rgba(102, 126, 234, 0.15),
-    0 0 0 1px rgba(102, 126, 234, 0.1);
-  border: 2px solid transparent;
-  background-clip: padding-box;
-  position: relative;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.15);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
 }
 
 .lagax-form::before {
   content: '';
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 20px;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
 }
 
 .lagax-form:hover {
-  transform: translateY(-5px);
-  box-shadow: 
-    0 15px 60px rgba(102, 126, 234, 0.25),
-    0 0 0 1px rgba(102, 126, 234, 0.2);
-}
-
-.lagax-form:hover::before {
-  opacity: 1;
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.25);
+  border-color: rgba(102, 126, 234, 0.3);
 }
 
 .form-grid {
@@ -132,6 +121,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-bottom: 1.5rem;
+  text-align: left;
 }
 
 .form-group {
@@ -262,7 +252,7 @@ body {
   }
   
   .lagax-form {
-    padding: 1.5rem;
+    padding: 30px 20px;
   }
   
   .submit-btn {
