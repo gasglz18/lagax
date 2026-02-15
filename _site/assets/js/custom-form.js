@@ -2,7 +2,7 @@
 (function() {
   'use strict';
   
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwA8siBlH6RvFj8OgKuot-StMsCQ1INdytCOT6ycyFTfM0xtak4jNFQsoQjP9k6aiQC/exec';
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxgJEbeEkI3GxyiRsxwAq6S3FGuYU9zJKDsfXXtFNfU_KUoXGc64ut6jYn8woeenjQI/exec';
   
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('lagax-custom-form');
