@@ -1,4 +1,7 @@
-// Translation using LibreTranslate API (100% free, no API key needed)
+// Add logging to console for debugging
+console.log('Language selector script LOADED');
+
+// Translation using MyMemory API
 const LIBRE_TRANSLATE_API = 'https://api.mymemory.translated.net/get';
 
 // Language mapping
@@ -11,148 +14,106 @@ const langMap = {
 };
 
 let currentLanguage = 'es';
-let originalTexts = {};
+let originalTexts = new Map();
 
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('Language selector initialized');
-  
-  // Store original Spanish text
-  storeOriginalTexts();
-  
-  // Restore saved language if exists
-  const savedLang = localStorage.getItem('selectedLanguage');
-  if (savedLang && savedLang !== 'es') {
-    setTimeout(() => changeLanguage(savedLang), 500);
-  }
-});
-
-// Store all original text nodes
-function storeOriginalTexts() {
-  const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, label, button, li, span');
-  elements.forEach(el => {
-    if (el.children.length === 0 && el.textContent.trim().length > 0) {
-      originalTexts[el.textContent.trim()] = el.textContent.trim();
-    }
-  });
-  console.log('Stored', Object.keys(originalTexts).length, 'text nodes');
-}
-
-// Main translation function
-async function changeLanguage(lang) {
-  console.log('Change language to:', lang);
+// Main translation function - GLOBAL
+window.changeLanguage = async function(lang) {
+  console.log('=== CHANGE LANGUAGE CALLED ===');
+  console.log('Language selected:', lang);
   
   localStorage.setItem('selectedLanguage', lang);
   updateLanguageButton(lang);
   
   if (lang === 'es') {
-    // Restore Spanish
-    restoreOriginalTexts();
-    currentLanguage = 'es';
-    console.log('Restored original Spanish content');
+    console.log('Restoring Spanish...');
+    location.reload(); // Reload page to restore
     return;
   }
   
   currentLanguage = lang;
+  console.log('Starting translation to:', lang);
   
-  // Show loading indicator
-  showLoadingState();
+  // Show loading
+  const main = document.querySelector('main');
+  if (main) {
+    main.style.opacity = '0.6';
+    console.log('Loading state activated');
+  }
   
   try {
-    // Get all translatable elements
-    const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, label, button, li, span, textarea');
-    let translated = 0;
+    // Get all text nodes
+    const elements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, a, label, button, span, td, th');
+    console.log('Found elements to translate:', elements.length);
     
+    let count = 0;
     for (const el of elements) {
-      // Skip if element has children or is empty
-      if (el.children.length > 0 || !el.textContent.trim()) continue;
-      
-      const originalText = el.textContent.trim();
-      
-      // Skip very short or already non-Spanish text
-      if (originalText.length < 2) continue;
+      if (el.children.length > 0) continue;
+      const text = el.textContent.trim();
+      if (text.length < 2) continue;
       
       try {
-        const translatedText = await translateText(originalText, lang);
-        if (translatedText && translatedText !== originalText) {
-          el.textContent = translatedText;
-          translated++;
-          console.log(`Translated: "${originalText}" → "${translatedText}"`);
+        console.log('Translating:', text.substring(0, 30));
+        const translated = await translateText(text, lang);
+        if (translated && translated !== text) {
+          el.textContent = translated;
+          count++;
         }
       } catch (e) {
-        console.log('Error translating:', e);
+        console.error('Translation error:', e);
       }
       
-      // Rate limiting
-      await new Promise(resolve => setTimeout(resolve, 50));
+      await new Promise(resolve => setTimeout(resolve, 30));
     }
     
-    console.log('Total translated:', translated);
+    console.log('Total elements translated:', count);
   } catch (error) {
-    console.error('Translation error:', error);
+    console.error('Translation process error:', error);
   } finally {
-    hideLoadingState();
+    if (main) {
+      main.style.opacity = '1';
+      console.log('Loading state removed');
+    }
   }
-}
+};
 
 // Translate single text
 async function translateText(text, targetLang) {
   try {
-    const response = await fetch(
-      `${LIBRE_TRANSLATE_API}?q=${encodeURIComponent(text)}&langpair=es|${targetLang}`
-    );
+    const url = `${LIBRE_TRANSLATE_API}?q=${encodeURIComponent(text)}&langpair=es|${targetLang}`;
+    console.log('API Call:', url.substring(0, 80) + '...');
     
+    const response = await fetch(url);
     const data = await response.json();
+    
+    console.log('API Response:', data.responseStatus);
     
     if (data.responseStatus === 200 && data.responseData.translatedText) {
       return data.responseData.translatedText;
     }
-    
     return text;
   } catch (error) {
-    console.error('Translation API error:', error);
+    console.error('API error:', error);
     return text;
   }
-}
-
-// Restore original Spanish text
-function restoreOriginalTexts() {
-  const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, label, button, li, span');
-  elements.forEach(el => {
-    if (el.children.length === 0) {
-      const originalText = Object.keys(originalTexts).find(key => 
-        el.textContent.includes(key.substring(0, 10))
-      );
-      if (originalText) {
-        el.textContent = originalText;
-      }
-    }
-  });
 }
 
 // Update button text
 function updateLanguageButton(lang) {
   const span = document.getElementById('currentLang');
+  console.log('Updating button, span element:', span);
   if (span && langMap[lang]) {
     span.textContent = langMap[lang].name;
+    console.log('Button updated to:', langMap[lang].name);
   }
 }
 
-// Loading indicator
-function showLoadingState() {
-  const main = document.querySelector('main');
-  if (main) {
-    main.style.opacity = '0.7';
-    main.style.transition = 'opacity 0.3s';
-  }
-}
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('=== DOM LOADED ===');
+  console.log('Window changeLanguage function available:', typeof window.changeLanguage);
+  
+  const savedLang = localStorage.getItem('selectedLanguage');
+  console.log('Saved language:', savedLang);
+});
 
-function hideLoadingState() {
-  const main = document.querySelector('main');
-  if (main) {
-    main.style.opacity = '1';
-  }
-}
-
-// Make globally available
-window.changeLanguage = changeLanguage;
+console.log('Language selector READY');
