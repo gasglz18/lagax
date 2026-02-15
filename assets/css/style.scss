@@ -17,11 +17,10 @@
 }
 
 .banner-content {
-  display: block;
+  display: flex;
   white-space: nowrap;
-  position: relative;
-  width: fit-content;
-  animation: scroll-left 15s linear infinite;
+  width: max-content;
+  animation: scroll-continuous 20s linear infinite;
 }
 
 .banner-text {
@@ -32,15 +31,16 @@
   text-shadow: 2px 2px 4px rgba(128, 128, 128, 0.8);
   letter-spacing: 2px;
   text-transform: uppercase;
-  padding: 0 20px;
+  padding: 0 100px;
+  flex-shrink: 0;
 }
 
-@keyframes scroll-left {
-  0% {
-    transform: translateX(100%);
+@keyframes scroll-continuous {
+  from {
+    transform: translateX(0);
   }
-  100% {
-    transform: translateX(-100%);
+  to {
+    transform: translateX(-50%);
   }
 }
 
