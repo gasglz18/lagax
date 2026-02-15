@@ -32,25 +32,34 @@
       
       // Send to Google Sheets via Apps Script
       fetch(APPS_SCRIPT_URL, {
+        redirect: 'follow',
         method: 'POST',
-        mode: 'no-cors',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'text/plain;charset=utf-8',
         },
         body: JSON.stringify(formData)
       })
-      .then(function() {
-        // Show success message
-        successMsg.style.display = 'block';
-        errorMsg.style.display = 'none';
-        form.reset();
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(result) {
+        console.log('Respuesta del servidor:', result);
         
-        // Re-enable button after a delay
-        setTimeout(function() {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar';
-          successMsg.style.display = 'none';
-        }, 5000);
+        if (result.status === 'success') {
+          // Show success message
+          successMsg.style.display = 'block';
+          errorMsg.style.display = 'none';
+          form.reset();
+          
+          // Re-enable button after a delay
+          setTimeout(function() {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar';
+            successMsg.style.display = 'none';
+          }, 5000);
+        } else {
+          throw new Error(result.message || 'Error desconocido');
+        }
       })
       .catch(function(error) {
         // Show error message
