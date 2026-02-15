@@ -21,14 +21,14 @@
 .matrix-scroll {
   display: flex !important;
   white-space: nowrap !important;
-  animation: scroll-rtl 30s linear infinite !important;
+  animation: scroll-rtl 39s linear infinite !important;
 }
 
 .matrix-text {
   display: inline-block !important;
   color: #00ff00 !important;
   font-family: 'Courier New', monospace !important;
-  font-size: 1.8rem !important;
+  font-size: 1.26rem !important;
   font-weight: 700 !important;
   text-shadow: 
     0 0 10px #00ff00,
@@ -73,7 +73,7 @@ body {
 
 @media (max-width: 768px) {
   .matrix-text {
-    font-size: 1.3rem;
+    font-size: 0.91rem;
     padding: 0 20px;
   }
   
