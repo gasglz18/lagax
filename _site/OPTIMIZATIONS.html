@@ -168,6 +168,8 @@
 
 <!-- end custom head snippets -->
 
+    <!-- Google Translate Widget -->
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <style>
       /* Matrix Banner - Estilos en línea con máxima prioridad */
       .matrix-banner {
@@ -327,14 +329,26 @@
                 <i class="fas fa-moon"></i>
               </button>
             </li>
+            <li class="nav-item dropdown ms-2">
+              <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-globe"></i> <span id="currentLang">Español</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                <li><a class="dropdown-item" href="#" onclick="changeLanguage('es'); return false;">🇪🇸 Español</a></li>
+                <li><a class="dropdown-item" href="#" onclick="changeLanguage('en'); return false;">🇺🇸 English</a></li>
+                <li><a class="dropdown-item" href="#" onclick="changeLanguage('pt'); return false;">🇵🇹 Português</a></li>
+                <li><a class="dropdown-item" href="#" onclick="changeLanguage('de'); return false;">🇩🇪 Deutsch</a></li>
+                <li><a class="dropdown-item" href="#" onclick="changeLanguage('zh-CN'); return false;">🇨🇳 中文 (Mandarin)</a></li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="main-content">
-      <section>
+    <main class="main-content">      <!-- Hidden Google Translate Widget Container -->
+      <div id=\"google_translate_element\"></div>      <section>
         <h1 id="optimizaciones-implementadas---puntos-8-y-9">Optimizaciones Implementadas - Puntos 8 y 9</h1>
 
 <h2 id="8-mejor-estructura-htmlcss">8. Mejor Estructura HTML/CSS</h2>
@@ -582,6 +596,6 @@
     <!-- Matrix Banner -->
     <script src="/assets/js/matrix-banner.js?v=2"></script>
     <!-- Custom Form Handler -->
-    <script src="/assets/js/custom-form.js"></script>
-  </body>
+    <script src="/assets/js/custom-form.js"></script>    <!-- Language Selector -->
+    <script src=\"/assets/js/language-selector.js\"></script>  </body>
 </html>
