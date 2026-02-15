@@ -545,7 +545,6 @@ startAutoplay();
 
 ¿Tienes preguntas o deseas conocer más acerca de nuestros servicios? Contáctanos:
 
-- **Teléfono**: +34 XXX XXX XXX
 - **Email**: [direccion@lagax.shop](mailto:direccion@lagax.shop)
 - **Email**: [w.alfaro@lagax.shop](mailto:w.alfaro@lagax.shop)
 - **Web**: www.lagax.shop
