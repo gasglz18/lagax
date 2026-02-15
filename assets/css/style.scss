@@ -17,9 +17,9 @@
 }
 
 .banner-content {
-  display: flex;
+  display: inline-block;
   white-space: nowrap;
-  animation: scroll-left 20s linear infinite;
+  animation: scroll-left 15s linear infinite;
 }
 
 .banner-text {
@@ -28,17 +28,16 @@
   font-size: 1.8rem;
   font-weight: 700;
   text-shadow: 2px 2px 4px rgba(128, 128, 128, 0.8);
-  padding: 0 50px;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
 @keyframes scroll-left {
   0% {
-    transform: translateX(0);
+    transform: translateX(100vw);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
 
