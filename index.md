@@ -579,7 +579,7 @@ startAutoplay();
       </div>
       
       <div class="form-group full-width">
-        <label for="direccion">Dirección <span class="required">*</span></label>
+        <label for="direccion">Ciudad/País <span class="required">*</span></label>
         <textarea id="direccion" name="direccion" rows="2" required></textarea>
       </div>
       
