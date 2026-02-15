@@ -2,3 +2,58 @@
 ---
 
 @import 'jekyll-theme-dinky';
+
+/* Banda dinámica de mensaje */
+.scrolling-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  overflow: hidden;
+  z-index: 1000;
+  padding: 15px 0;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.banner-content {
+  display: flex;
+  white-space: nowrap;
+  animation: scroll-left 20s linear infinite;
+}
+
+.banner-text {
+  display: inline-block;
+  color: #ff0000;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(128, 128, 128, 0.8);
+  padding: 0 50px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Ajuste para el contenido principal para que no quede detrás de la banda */
+body {
+  padding-bottom: 70px;
+}
+
+@media (max-width: 768px) {
+  .banner-text {
+    font-size: 1.3rem;
+    padding: 0 30px;
+  }
+  
+  body {
+    padding-bottom: 60px;
+  }
+}
