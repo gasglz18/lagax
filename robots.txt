@@ -1,8 +1,36 @@
 User-agent: *
 Allow: /
-Disallow: /assets/
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+Disallow: /_site/
+Disallow: /_sass/
+Disallow: /_includes/
+Disallow: /.github/
+Disallow: /docs/
 
-Sitemap: https://www.lagax.shop/sitemap.xml
+# Crawl-delay para que no saturemos servidor
+Crawl-delay: 1
 
+# Bots específicos
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+
+# Bloquear bots maliciosos comunes
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+User-agent: SemrushBot-SA
+Disallow: /
+
+# Sitemap
+Sitemap: https://www.lagax.shop/sitemap.xml

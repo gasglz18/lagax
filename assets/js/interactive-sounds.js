@@ -5,13 +5,7 @@ const SoundSystem = {
   
   // Sound definitions - using free audio from web-accessible sources
   sounds: {
-    airplane: 'https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3',
-    cash_register: 'https://assets.mixkit.co/active_storage/sfx/2816/2816-preview.mp3',
-    metallic_hit: 'https://assets.mixkit.co/active_storage/sfx/2845/2845-preview.mp3',
-    welding: 'https://assets.mixkit.co/active_storage/sfx/2854/2854-preview.mp3',
-    cash_coins: 'https://assets.mixkit.co/active_storage/sfx/2815/2815-preview.mp3',
-    notification: 'https://assets.mixkit.co/active_storage/sfx/2489/2489-preview.mp3',
-    success: 'https://assets.mixkit.co/active_storage/sfx/2867/2867-preview.mp3'
+    pin: 'https://assets.mixkit.co/active_storage/sfx/2351/2351-preview.mp3'
   },
   
   // Initialize the sound system
@@ -57,47 +51,20 @@ const SoundSystem = {
   
   // Attach sounds to elements
   attachSoundsToElements: function() {
-    // Map of keywords to sounds and their selectors
+    const floatingSelectors = [
+      '.modal',
+      '.modal-dialog',
+      '.modal-content',
+      '.modal-header',
+      '.modal-body',
+      '.modal-footer',
+      '.whatsapp-float'
+    ];
     const soundMappings = [
       {
-        keywords: ['distribur', 'distribución', 'distribucion'],
-        sound: 'airplane',
-        selector: 'h2, h3, p, a'
-      },
-      {
-        keywords: ['importar', 'importación', 'importacion'],
-        sound: 'notification',
-        selector: 'h2, h3, p, a'
-      },
-      {
-        keywords: ['exportar', 'exportación', 'exportacion'],
-        sound: 'success',
-        selector: 'h2, h3, p, a'
-      },
-      {
-        keywords: ['almacenar', 'almacenamiento', 'warehouse', 'logística'],
-        sound: 'notification',
-        selector: 'h2, h3, p, a'
-      },
-      {
-        keywords: ['asesorías', 'asesorias', 'financier', 'financial'],
-        sound: 'cash_register',
-        selector: 'h2, h3, p, a'
-      },
-      {
-        keywords: ['ubicacion', 'ubicaciones', 'location'],
-        sound: 'notification',
-        selector: 'h2, h3, p, a, li'
-      },
-      {
-        keywords: ['pailería', 'paileria'],
-        sound: 'metallic_hit',
-        selector: 'h2, h3, p, a'
-      },
-      {
-        keywords: ['soldadura', 'soldadas', 'welding'],
-        sound: 'welding',
-        selector: 'h2, h3, p, a'
+        matchAll: true,
+        sound: 'pin',
+        selector: floatingSelectors.join(', ')
       }
     ];
     
@@ -105,9 +72,7 @@ const SoundSystem = {
     soundMappings.forEach(mapping => {
       const elements = document.querySelectorAll(mapping.selector);
       elements.forEach(el => {
-        const text = el.textContent.toLowerCase();
-        // Check if any keyword matches
-        if (mapping.keywords.some(keyword => text.includes(keyword))) {
+        if (mapping.matchAll) {
           el.setAttribute('data-sound', mapping.sound);
           el.style.cursor = 'pointer';
           el.addEventListener('mouseenter', () => this.playSound(mapping.sound));

@@ -1,0 +1,57 @@
+# Cabeceras de caché optimizadas para Netlify
+# Si usas GitHub Pages, Github lo maneja automáticamente
+
+# CSS y JS - Caché largo (1 año)
+/assets/css/*.min.css
+  Cache-Control: public, immutable, max-age=31536000
+
+/assets/js/*.min.js
+  Cache-Control: public, immutable, max-age=31536000
+
+# Imágenes - Caché largo (6 meses)
+/images/*
+  Cache-Control: public, max-age=15552000
+  
+/*.jpg
+  Cache-Control: public, max-age=15552000
+
+/*.png
+  Cache-Control: public, max-age=15552000
+
+# HTML - Caché corto (7 días)
+/*.html
+  Cache-Control: public, max-age=604800, must-revalidate
+
+# Sitemap y robots - Caché corto (1 día)
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+# Compresión automática
+Content-Type: text/html
+  Content-Encoding: gzip
+
+Content-Type: text/css
+  Content-Encoding: gzip
+
+Content-Type: application/javascript
+  Content-Encoding: gzip
+
+Content-Type: text/javascript
+  Content-Encoding: gzip
+
+Content-Type: application/json
+  Content-Encoding: gzip
+
+Content-Type: image/svg+xml
+  Content-Encoding: gzip
+
+# Seguridad: Headers de seguridad
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
