@@ -11,6 +11,55 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('✓ Bootstrap disponible');
 
+    // ===== NAVBAR COLLAPSE MOBILE FIX =====
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('#navbarNav');
+    
+    if (navbarToggler && navbarCollapse) {
+      console.log('✓ Navbar toggler y collapse encontrados');
+      
+      // Asegurarse de que el collapse esté inicializado
+      let collapseInstance = bootstrap.Collapse.getInstance(navbarCollapse);
+      if (!collapseInstance) {
+        collapseInstance = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+        console.log('✓ Collapse instance creada');
+      }
+      
+      // Manejar clicks en el botón toggle
+      navbarToggler.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log('📱 Click en navbar toggler');
+        
+        // Verificar estado actual
+        const isExpanded = navbarCollapse.classList.contains('show');
+        console.log('📱 Estado actual:', isExpanded ? 'ABIERTO' : 'CERRADO');
+        
+        // Toggle el collapse
+        if (isExpanded) {
+          collapseInstance.hide();
+          console.log('📱 Cerrando navbar...');
+        } else {
+          collapseInstance.show();
+          console.log('📱 Abriendo navbar...');
+        }
+      });
+      
+      // Cerrar navbar al hacer click en un link (solo en móvil)
+      const navLinks = navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          if (window.innerWidth < 992) { // Bootstrap lg breakpoint
+            console.log('📱 Click en nav-link, cerrando navbar');
+            collapseInstance.hide();
+          }
+        });
+      });
+      
+      console.log('✅ Navbar mobile fix aplicado');
+    } else {
+      console.warn('⚠️ No se encontró navbar toggler o collapse');
+    }
+
     // Inicializar dropdowns manualmente con click handlers
     const dropdownElements = document.querySelectorAll('[data-bs-toggle="dropdown"]');
     console.log('✓ Dropdowns encontrados:', dropdownElements.length);
@@ -69,3 +118,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
   initBootstrap();
 });
+
