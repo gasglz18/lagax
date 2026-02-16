@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    // Inicializar modales
+    // Inicializar modales con limpieza de backdrop
     const modalTriggers = document.querySelectorAll('[data-bs-toggle="modal"]');
     console.log('✓ Modal triggers encontrados:', modalTriggers.length);
     
@@ -45,7 +45,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const modalElement = document.querySelector(targetId);
         
         if (modalElement) {
-          const modal = new bootstrap.Modal(modalElement);
+          const modal = new bootstrap.Modal(modalElement, {
+            backdrop: true,
+            keyboard: true
+          });
+          
+          // Limpiar backdrop al cerrar
+          modalElement.addEventListener('hidden.bs.modal', function () {
+            // Remover todos los backdrops
+            document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+              backdrop.remove();
+            });
+            // Restaurar scroll del body
+            document.body.classList.remove('modal-open');
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+            console.log('✓ Modal cerrado y backdrop eliminado');
+          });
+          
           modal.show();
           console.log('✓ Modal abierto:', targetId);
         }
