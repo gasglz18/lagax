@@ -704,6 +704,62 @@ para construir lista de emails
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Smooth Scroll Navigation - Inline -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('✓ Script de navegación cargado');
+        
+        // Manejar todos los enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+          link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Ignorar si es solo #
+            if (href === '#' || href === '') {
+              return;
+            }
+            
+            // Ignorar elementos de Bootstrap (dropdowns, modales)
+            if (this.hasAttribute('data-bs-toggle')) {
+              console.log('Ignorando Bootstrap element:', href);
+              return;
+            }
+            
+            // Buscar el elemento objetivo
+            const target = document.querySelector(href);
+            if (!target) {
+              console.log('Target no encontrado:', href);
+              return;
+            }
+            
+            // Prevenir comportamiento por defecto
+            e.preventDefault();
+            console.log('Scrolling a:', href);
+            
+            // Calcular posición con offset del navbar
+            const navbarHeight = 80;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+            
+            // Hacer scroll suave
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+            
+            // Cerrar navbar móvil si está abierto
+            const navbar = document.querySelector('.navbar-collapse');
+            if (navbar && navbar.classList.contains('show')) {
+              const bsCollapse = bootstrap.Collapse.getInstance(navbar) || new bootstrap.Collapse(navbar, {toggle: false});
+              bsCollapse.hide();
+            }
+          });
+        });
+        
+        console.log('✓ Navegación inicializada');
+      });
+    </script>
+    
     <!-- Initialize Bootstrap Components -->
     <script src="/assets/js/init-bootstrap.js"></script>
     <!-- Main JS (minified) -->
