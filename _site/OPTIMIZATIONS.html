@@ -657,36 +657,41 @@
       document.addEventListener('DOMContentLoaded', function() {
         console.log('✓ Script de navegación cargado');
         
-        // Manejar todos los enlaces de navegación
-        document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+        // Solo manejar enlaces de navegación específicos (nav-link SIN data-bs-toggle)
+        document.querySelectorAll('a.nav-link[href^="#"]').forEach(function(link) {
+          // IMPORTANTE: Ignorar completamente los que tienen data-bs-toggle (dropdowns)
+          if (link.hasAttribute('data-bs-toggle')) {
+            console.log('Ignorando dropdown:', link.textContent.trim());
+            return;
+          }
+          
           link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             
+            console.log('Click en nav-link:', this.textContent.trim(), 'href:', href);
+            
             // Ignorar si es solo #
             if (href === '#' || href === '') {
-              return;
-            }
-            
-            // Ignorar elementos de Bootstrap (dropdowns, modales)
-            if (this.hasAttribute('data-bs-toggle')) {
-              console.log('Ignorando Bootstrap element:', href);
+              console.log('  Ignorado: href vacío');
               return;
             }
             
             // Buscar el elemento objetivo
             const target = document.querySelector(href);
             if (!target) {
-              console.log('Target no encontrado:', href);
+              console.log('  Error: target no encontrado:', href);
               return;
             }
             
             // Prevenir comportamiento por defecto
             e.preventDefault();
-            console.log('Scrolling a:', href);
+            console.log('  ✓ Scrolling a:', href);
             
             // Calcular posición con offset del navbar
             const navbarHeight = 80;
             const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+            
+            console.log('  ✓ Posición:', targetPosition);
             
             // Hacer scroll suave
             window.scrollTo({
@@ -703,7 +708,8 @@
           });
         });
         
-        console.log('✓ Navegación inicializada');
+        console.log('✓ Navegación inicializada para enlaces nav-link');
+      });
       });
     </script>
     

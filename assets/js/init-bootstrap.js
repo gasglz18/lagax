@@ -11,13 +11,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('✓ Bootstrap disponible');
 
-    // Inicializar dropdowns
+    // Inicializar dropdowns manualmente con click handlers
     const dropdownElements = document.querySelectorAll('[data-bs-toggle="dropdown"]');
     console.log('✓ Dropdowns encontrados:', dropdownElements.length);
     
     dropdownElements.forEach(function(element) {
       try {
-        new bootstrap.Dropdown(element, { autoClose: true });
+        const dropdown = new bootstrap.Dropdown(element, { autoClose: true });
+        
+        // Agregar listener de click adicional
+        element.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          dropdown.toggle();
+          console.log('✓ Dropdown toggle:', element.textContent.trim());
+        });
+        
         console.log('✓ Dropdown inicializado:', element.id || element.textContent.trim());
       } catch(err) {
         console.error('✗ Error inicializando dropdown:', err);
@@ -47,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = '';
             document.body.style.paddingRight = '';
             console.log('✓ Modal cerrado, backdrop eliminado');
-          });
+          }, { once: true });
           
           modal.show();
           console.log('✓ Modal abierto:', targetId);
