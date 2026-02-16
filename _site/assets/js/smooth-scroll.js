@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const href = this.getAttribute('href');
       if (href === '#' || href === '') return;
       
+      // Ignorar elementos con data-bs-toggle (dropdowns, modales, etc.)
+      if (this.hasAttribute('data-bs-toggle')) return;
+      
       const target = document.querySelector(href);
       if (!target) return;
       
