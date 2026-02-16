@@ -3,10 +3,16 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
+      
+      // Ignorar elementos sin href válido
       if (href === '#' || href === '') return;
       
       // Ignorar elementos con data-bs-toggle (dropdowns, modales, etc.)
       if (this.hasAttribute('data-bs-toggle')) return;
+      
+      // Ignorar links dentro de dropdowns
+      if (this.classList.contains('dropdown-item')) return;
+      if (this.classList.contains('dropdown-toggle')) return;
       
       const target = document.querySelector(href);
       if (!target) return;
