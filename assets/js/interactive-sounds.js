@@ -98,6 +98,8 @@ const SoundSystem = {
           el.setAttribute('data-sound', mapping.sound);
           el.style.cursor = 'pointer';
           el.addEventListener('mouseenter', () => this.playSound(mapping.sound));
+          el.addEventListener('touchstart', () => this.playSound(mapping.sound), { passive: true });
+          el.addEventListener('click', () => this.playSound(mapping.sound));
         }
       });
     });
