@@ -702,8 +702,10 @@
             // Cerrar navbar móvil si está abierto
             const navbar = document.querySelector('.navbar-collapse');
             if (navbar && navbar.classList.contains('show')) {
-              const bsCollapse = bootstrap.Collapse.getInstance(navbar) || new bootstrap.Collapse(navbar, {toggle: false});
-              bsCollapse.hide();
+              const bsCollapse = bootstrap.Collapse.getInstance(navbar);
+              if (bsCollapse) {
+                bsCollapse.hide();
+              }
             }
           });
         });
