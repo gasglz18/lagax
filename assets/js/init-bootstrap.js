@@ -14,40 +14,34 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== NAVBAR COLLAPSE MOBILE FIX =====
     const navbarToggler = document.querySelector('.navbar-toggler');
     const navbarCollapse = document.querySelector('#navbarNav');
+    const navbarToggle = document.getElementById('navbarToggle');
     
     if (navbarToggler && navbarCollapse) {
       console.log('✓ Navbar toggler y collapse encontrados');
-      
-      // NO crear nueva instancia, dejar que Bootstrap la maneje automáticamente
-      // Solo escuchar los eventos de Bootstrap
-      navbarCollapse.addEventListener('show.bs.collapse', function () {
-        console.log('📱 Navbar ABRIENDO...');
-      });
-      
-      navbarCollapse.addEventListener('shown.bs.collapse', function () {
-        console.log('✅ Navbar ABIERTO');
-      });
-      
-      navbarCollapse.addEventListener('hide.bs.collapse', function () {
-        console.log('📱 Navbar CERRANDO...');
-      });
-      
-      navbarCollapse.addEventListener('hidden.bs.collapse', function () {
-        console.log('✅ Navbar CERRADO');
-      });
+
+      const setToggleAria = (isOpen) => {
+        navbarToggler.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        console.log(isOpen ? '✅ Navbar ABIERTO' : '✅ Navbar CERRADO');
+      };
+
+      if (navbarToggle) {
+        navbarToggle.addEventListener('change', function() {
+          setToggleAria(navbarToggle.checked);
+        });
+      }
       
       // Cerrar navbar al hacer click en un link (solo en móvil)
       const navLinks = navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)');
       navLinks.forEach(link => {
         link.addEventListener('click', function() {
-          if (window.innerWidth < 992) { // Bootstrap lg breakpoint
+          if (window.innerWidth < 992 && navbarToggle) { // Bootstrap lg breakpoint
             console.log('📱 Click en nav-link, cerrando navbar');
-            const collapseInstance = bootstrap.Collapse.getInstance(navbarCollapse) || 
-                                     new bootstrap.Collapse(navbarCollapse, { toggle: false });
-            collapseInstance.hide();
+            navbarToggle.checked = false;
+            setToggleAria(false);
           }
         });
       });
+
       
       console.log('✅ Navbar mobile fix aplicado (usando comportamiento nativo de Bootstrap)');
     } else {

@@ -477,13 +477,7 @@ startAutoplay();
   <div class="hero-divider"></div>
   <p class="hero-description" style="margin-bottom: 20px;">Como <strong>comercializadora industrial</strong> líder, ofrecemos:</p>
   
-  <!-- Botón para activar sonidos -->
-  <div style="text-align: center; margin-bottom: 20px;">
-    <button id="activarSonidos" class="btn btn-primary" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; padding: 12px 30px; font-size: 16px; font-weight: bold; border-radius: 25px; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); transition: all 0.3s ease;">
-      🔊 Activar Sonidos Interactivos
-    </button>
-    <p id="sonidosEstado" style="margin-top: 10px; font-size: 14px; color: #666; font-style: italic;">Haz click en el botón para activar los sonidos</p>
-  </div>
+
   
   <div class="servicios-list">
     <div class="servicio-item">🌍 <strong>Importación y Exportación</strong> con seguimiento completo</div>
