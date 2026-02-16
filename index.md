@@ -354,7 +354,7 @@ function goToSlide(index) {
 function startAutoplay() {
   autoplayInterval = setInterval(() => {
     moveCarousel(1);
-  }, 10000);
+  }, 8500);
 }
 
 function resetAutoplay() {
