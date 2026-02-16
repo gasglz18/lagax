@@ -1,5 +1,7 @@
-// Inicialización de componentes Bootstrap
+// Inicialización de componentes Bootstrap y navegación
 document.addEventListener('DOMContentLoaded', function() {
+  console.log('🚀 Inicializando sitio...');
+  
   // Esperar a que Bootstrap esté cargado
   const initBootstrap = () => {
     if (typeof bootstrap === 'undefined') {
@@ -69,8 +71,75 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
+    // Inicializar navegación con smooth scroll
+    initSmoothScroll();
+
     console.log('✓ Bootstrap inicializado completamente');
   };
+
+  // Función de smooth scroll
+  function initSmoothScroll() {
+    console.log('✓ Inicializando smooth scroll...');
+    
+    const navLinks = document.querySelectorAll('a.nav-link[href^="#"]');
+    console.log('✓ Enlaces de navegación encontrados:', navLinks.length);
+    
+    navLinks.forEach(function(link) {
+      // Ignorar dropdowns
+      if (link.hasAttribute('data-bs-toggle')) {
+        console.log('  ↳ Ignorando (dropdown):', link.textContent.trim());
+        return;
+      }
+      
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        console.log('→ Click en:', this.textContent.trim(), 'href:', href);
+        
+        if (href === '#' || !href) {
+          console.log('  ↳ Ignorado: href vacío');
+          return;
+        }
+        
+        const target = document.querySelector(href);
+        if (!target) {
+          console.error('  ✗ Target no encontrado:', href);
+          return;
+        }
+        
+        e.preventDefault();
+        console.log('  ✓ Target encontrado, haciendo scroll...');
+        
+        // Cerrar navbar si está abierto
+        const navbar = document.querySelector('.navbar-collapse');
+        if (navbar && navbar.classList.contains('show')) {
+          try {
+            const bsCollapse = new bootstrap.Collapse(navbar, { toggle: false });
+            bsCollapse.hide();
+          } catch(err) {
+            console.warn('Error cerrando navbar:', err);
+          }
+        }
+        
+        // Calcular posición
+        const navbarHeight = 80;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+        
+        console.log('  ↳ Scrolling a posición:', targetPosition);
+        
+        // Hacer scroll
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+        
+        setTimeout(() => {
+          console.log('  ✓ Scroll completado');
+        }, 500);
+      });
+      
+      console.log('  ✓ Listener agregado a:', link.textContent.trim());
+    });
+  }
 
   initBootstrap();
 });
