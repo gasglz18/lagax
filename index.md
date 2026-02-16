@@ -481,8 +481,7 @@ startAutoplay();
   
   <div class="servicios-list">
     <div class="servicio-item">🌍 <strong>Importación y Exportación</strong> con seguimiento completo</div>
-    <div class="servicio-item">🚚 <strong>Distribución de productos industriales</strong></div>
-    <div class="servicio-item">💼 <strong>Asesorías comerciales</strong> personalizadas</div>
+    <div class="servicio-item"> <strong>Asesorías comerciales</strong> personalizadas</div>
     <div class="servicio-item">🔧 <strong>Servicios de soldadura y pailería</strong></div>
     <div class="servicio-item">💰 <strong>Asesoría financiera</strong> a empresas</div>
     <div class="servicio-item">💻 <strong>Soluciones de Software</strong> a la medida del cliente</div>
