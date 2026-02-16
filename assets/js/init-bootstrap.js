@@ -18,30 +18,22 @@ document.addEventListener('DOMContentLoaded', function() {
     if (navbarToggler && navbarCollapse) {
       console.log('✓ Navbar toggler y collapse encontrados');
       
-      // Asegurarse de que el collapse esté inicializado
-      let collapseInstance = bootstrap.Collapse.getInstance(navbarCollapse);
-      if (!collapseInstance) {
-        collapseInstance = new bootstrap.Collapse(navbarCollapse, { toggle: false });
-        console.log('✓ Collapse instance creada');
-      }
+      // NO crear nueva instancia, dejar que Bootstrap la maneje automáticamente
+      // Solo escuchar los eventos de Bootstrap
+      navbarCollapse.addEventListener('show.bs.collapse', function () {
+        console.log('📱 Navbar ABRIENDO...');
+      });
       
-      // Manejar clicks en el botón toggle
-      navbarToggler.addEventListener('click', function(e) {
-        e.preventDefault();
-        console.log('📱 Click en navbar toggler');
-        
-        // Verificar estado actual
-        const isExpanded = navbarCollapse.classList.contains('show');
-        console.log('📱 Estado actual:', isExpanded ? 'ABIERTO' : 'CERRADO');
-        
-        // Toggle el collapse
-        if (isExpanded) {
-          collapseInstance.hide();
-          console.log('📱 Cerrando navbar...');
-        } else {
-          collapseInstance.show();
-          console.log('📱 Abriendo navbar...');
-        }
+      navbarCollapse.addEventListener('shown.bs.collapse', function () {
+        console.log('✅ Navbar ABIERTO');
+      });
+      
+      navbarCollapse.addEventListener('hide.bs.collapse', function () {
+        console.log('📱 Navbar CERRANDO...');
+      });
+      
+      navbarCollapse.addEventListener('hidden.bs.collapse', function () {
+        console.log('✅ Navbar CERRADO');
       });
       
       // Cerrar navbar al hacer click en un link (solo en móvil)
@@ -50,12 +42,14 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
           if (window.innerWidth < 992) { // Bootstrap lg breakpoint
             console.log('📱 Click en nav-link, cerrando navbar');
+            const collapseInstance = bootstrap.Collapse.getInstance(navbarCollapse) || 
+                                     new bootstrap.Collapse(navbarCollapse, { toggle: false });
             collapseInstance.hide();
           }
         });
       });
       
-      console.log('✅ Navbar mobile fix aplicado');
+      console.log('✅ Navbar mobile fix aplicado (usando comportamiento nativo de Bootstrap)');
     } else {
       console.warn('⚠️ No se encontró navbar toggler o collapse');
     }
