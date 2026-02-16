@@ -222,7 +222,7 @@ title: Lagax - Tu Comercializadora
   </div>
 </div>
 
-## Nuestros Productos y Servicios {#productos-servicios}
+<h2 class="hero-section-title" id="productos-servicios">Nuestros Productos y Servicios</h2>
 
 Contamos con una amplia gama de productos y servicios diseñados para cubrir todas tus necesidades comerciales:
 
@@ -354,7 +354,7 @@ function goToSlide(index) {
 function startAutoplay() {
   autoplayInterval = setInterval(() => {
     moveCarousel(1);
-  }, 5000);
+  }, 10000);
 }
 
 function resetAutoplay() {

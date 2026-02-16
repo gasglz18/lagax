@@ -22,23 +22,46 @@
 <!-- End Jekyll SEO tag -->
 
     <!-- Meta tags optimizados para SEO y performance -->
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="language" content="Spanish">
-<meta name="revisit-after" content="7 days">
+<meta name="revisit-after" content="5 days">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="theme-color" content="#667eea">
 <meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="es_MX">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="LAGAX">
 
-<!-- Performance -->
+<!-- Preload Críticos -->
+<link rel="preload" as="style" href="/assets/css/style.min.css?v=2">
+<link rel="preload" as="font" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" crossorigin>
+
+<!-- DNS Prefetch y Preconnect para Terceros -->
 <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<link rel="dns-prefetch" href="//js.hs-scripts.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+<!-- Google Search Console -->
+<!-- Reemplaza XXXXX con tu token de verificación de Google search console -->
+<!-- <meta name="google-site-verification" content="XXXXX"> -->
+
+<!-- Microsoft Bing Webmaster -->
+<!-- Reemplaza XXXXX con tu token de verificación de Bing webmaster -->
+<!-- <meta name="msvalidate.01" content="XXXXX"> -->
+
+<!-- Verificación Pinterest -->
+<!-- <meta name="pinterest-site-verification" content="XXXXX"> -->
+
+<!-- Performance: Eliminación de recursos bloqueantes -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -52,11 +75,14 @@
 
 
 
-<!-- You can set your favicon here -->
-<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+<!-- Favicon y Apple Icons -->
+<link rel="icon" type="image/jpeg" href="/LOGO%20LAGAX.jpg">
+<link rel="apple-touch-icon" href="/LOGO%20LAGAX.jpg">
+<link rel="canonical" href="https://www.lagax.shop/">
 
 <!-- SEO Meta Tags -->
 <meta name="keywords" content="comercializadora Monterrey, comercializadora Saltillo, comercializadora Torreón, comercializadora Aguascalientes, comercializadora industrial, comercial Coahuila, importación Saltillo, exportación Torreón, impo export Aguascalientes, impo export Coahuila, logística industrial, distribución productos industriales, asesoría comercial Nuevo León, servicios importación México, soldadura pailería, soluciones industriales, soluciones comerciales, urgencias industriales, comercializadora urgencias, proveedor industrial Saltillo">
+<meta name="color-scheme" content="light dark">
 <meta name="geo.region" content="MX-NL">
 <meta name="geo.region" content="MX-CO">
 <meta name="geo.region" content="MX-AG">
@@ -65,25 +91,52 @@
 <meta name="geo.placename" content="Torreón">
 <meta name="geo.placename" content="Aguascalientes">
 <meta name="author" content="Productos y Servicios Lagax">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+<!-- Open Graph - Mejora viralización en redes -->
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="LAGAX">
 <meta property="og:title" content="LAGAX - Comercializadora Industrial en Monterrey, Saltillo y Torreón">
 <meta property="og:description" content="Servicios de importación, exportación, logística Impo-Export y distribución de productos industriales en Coahuila y Nuevo León.">
 <meta property="og:url" content="https://www.lagax.shop">
+<meta property="og:image" content="https://www.lagax.shop/LOGO%20LAGAX.jpg">
+<meta property="og:image:alt" content="Logo LAGAX - Comercializadora Industrial">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card - Optimizado para X/Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="LAGAX - Comercializadora Industrial">
+<meta name="twitter:description" content="Servicios de importación, exportación, logística y distribución de productos industriales en México.">
+<meta name="twitter:image" content="https://www.lagax.shop/LOGO%20LAGAX.jpg">
+<meta name="twitter:image:alt" content="Logo LAGAX">
+<meta name="twitter:domain" content="www.lagax.shop">
 
 <!-- Schema.org Markup para Negocio Local -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "LocalBusiness",
+  "@id": "https://www.lagax.shop",
   "name": "Productos y Servicios Lagax",
   "alternateName": "LAGAX",
+  "description": "Comercializadora industrial especializada en importación, exportación, logística Impo-Export y distribución de productos industriales en México",
   "url": "https://www.lagax.shop",
-  "logo": "https://www.lagax.shop/LOGO%20LAGAX.jpg",
-  "description": "Comercializadora industrial especializada en importación, exportación, logística y distribución de productos industriales",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.lagax.shop/LOGO%20LAGAX.jpg",
+    "width": 200,
+    "height": 200
+  },
+  "image": "https://www.lagax.shop/LOGO%20LAGAX.jpg",
   "email": "direccion@lagax.shop",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Service",
+    "email": "direccion@lagax.shop",
+    "availableLanguage": ["es"]
+  },
+  "priceRange": "$$",
   "areaServed": [
     {
       "@type": "City",
@@ -123,9 +176,6 @@
     "addressCountry": "MX",
     "addressRegion": "Coahuila"
   },
-  "sameAs": [
-    "https://www.lagax.shop"
-  ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Servicios Industriales",
@@ -152,6 +202,22 @@
           "@type": "Service",
           "name": "Asesorías Comerciales",
           "description": "Consultoría comercial especializada para la industria"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Soldadura y Pailería",
+          "description": "Servicios de soldadura, fabricación de pailas y estructuras metálicas"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Soluciones de Software",
+          "description": "Desarrollo e implementación de soluciones software para la industria"
         }
       }
     ]
@@ -566,7 +632,7 @@
   </div>
 </div>
 
-## Nuestros Productos y Servicios {#productos-servicios}
+<h2 class="hero-section-title" id="productos-servicios">Nuestros Productos y Servicios</h2>
 
 Contamos con una amplia gama de productos y servicios diseñados para cubrir todas tus necesidades comerciales:
 
@@ -698,7 +764,7 @@ function goToSlide(index) {
 function startAutoplay() {
   autoplayInterval = setInterval(() => {
     moveCarousel(1);
-  }, 5000);
+  }, 10000);
 }
 
 function resetAutoplay() {

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
+  
+  <!-- Página Principal -->
+  <url>
+    <loc>https://www.lagax.shop/</loc>
+    <lastmod>2026-02-16T01:18:11+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.lagax.shop/LOGO%20LAGAX.jpg</image:loc>
+      <image:title>Logo LAGAX</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.lagax.shop/LOGISTICA%20IMPO%20EXPORT.png</image:loc>
+      <image:title>Logística Impo Export</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.lagax.shop/DISTRIBUCION.png</image:loc>
+      <image:title>Distribución de Productos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.lagax.shop/ASESORIAS.png</image:loc>
+      <image:title>Asesorías Comerciales</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.lagax.shop/SOLDADURA%20PAILERIA.png</image:loc>
+      <image:title>Soldadura y Pailería</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.lagax.shop/SOFTWARE.jpg</image:loc>
+      <image:title>Soluciones de Software</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.lagax.shop/FINANCIERA.png</image:loc>
+      <image:title>Soluciones Financieras</image:title>
+    </image:image>
+  </url>
+
+  <!-- Páginas Adicionales -->
+  
+    
+      <url>
+        <loc>https://www.lagax.shop/</loc>
+        <lastmod></lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+      </url>
+    
+  
+    
+  
+    
+      <url>
+        <loc>https://www.lagax.shop/assets/css/style.css</loc>
+        <lastmod></lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+      </url>
+    
+  
+    
+      <url>
+        <loc>https://www.lagax.shop/OPTIMIZATIONS.html</loc>
+        <lastmod></lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+      </url>
+    
+  
+    
+      <url>
+        <loc>https://www.lagax.shop/SEO-GUIDE.html</loc>
+        <lastmod></lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+      </url>
+    
+  
+
+</urlset>
