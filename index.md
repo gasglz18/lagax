@@ -485,6 +485,7 @@ startAutoplay();
     <div class="servicio-item">🔧 <strong>Servicios de soldadura y pailería</strong></div>
     <div class="servicio-item">💰 <strong>Asesoría financiera</strong> a empresas</div>
     <div class="servicio-item">💻 <strong>Soluciones de Software</strong> a la medida del cliente</div>
+    <div class="servicio-item">📦 <strong>Apoyo para realización y manejo de inventarios físicos</strong></div>
   </div>
   
   <p class="hero-description" style="margin-top: 30px; font-style: italic; color: #667eea;">Contáctanos para conocer cómo podemos ayudarte con tus necesidades de comercialización.</p>
