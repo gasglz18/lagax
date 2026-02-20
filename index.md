@@ -483,7 +483,7 @@ startAutoplay();
     <div class="servicio-item">🌍 <strong>Importación y Exportación</strong> con seguimiento completo</div>
     <div class="servicio-item"> <strong>Asesorías comerciales</strong> personalizadas</div>
     <div class="servicio-item">🔧 <strong>Servicios de soldadura y pailería</strong></div>
-    <div class="servicio-item">💰 <strong>Asesoría financiera</strong> a empresas</div>
+    <div class="servicio-item">🎉 <strong>Organización de eventos empresariales</strong></div>
     <div class="servicio-item">💻 <strong>Soluciones de Software</strong> a la medida del cliente</div>
     <div class="servicio-item">📦 <strong>Apoyo para realización y manejo de inventarios físicos</strong></div>
   </div>
