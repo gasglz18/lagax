@@ -543,6 +543,92 @@ startAutoplay();
 }
 </style>
 
+<div class="hero-card clientes-hero" id="nuestros-clientes">
+  <h3 class="hero-section-title">Nuestros Clientes</h3>
+  <div class="hero-divider"></div>
+  <p class="hero-description" style="margin-bottom: 25px;">Empresas que han confiado en <strong>Lagax</strong>.</p>
+
+  <div class="clientes-grid">
+    <div class="cliente-card">
+      <img src="Iberdrola-Emblem.jpg" loading="lazy" alt="Logo Iberdrola" class="cliente-logo">
+      <div class="cliente-nombre">Iberdrola</div>
+    </div>
+
+    <div class="cliente-card">
+      <img src="ABP%27logo%202.jpg" loading="lazy" alt="Logo Anchor Bay Packaging" class="cliente-logo">
+      <div class="cliente-nombre">Anchor Bay Packaging</div>
+    </div>
+  </div>
+</div>
+
+<style>
+.clientes-hero {
+  margin: 50px auto;
+}
+
+.clientes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cliente-card {
+  background: #fff;
+  border: 2px solid rgba(102, 126, 234, 0.15);
+  border-radius: 14px;
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 170px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.cliente-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.18);
+  border-color: rgba(102, 126, 234, 0.35);
+}
+
+.cliente-logo {
+  max-width: 170px;
+  max-height: 70px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.cliente-nombre {
+  font-weight: 700;
+  color: #4a5568;
+  text-align: center;
+}
+
+.dark-mode .cliente-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.dark-mode .cliente-nombre {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+@media (max-width: 768px) {
+  .clientes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cliente-logo {
+    max-width: 150px;
+    max-height: 64px;
+  }
+}
+</style>
+
 ## Contáctanos {#contactanos}
 
 ¿Tienes preguntas o deseas conocer más acerca de nuestros servicios? Contáctanos:
