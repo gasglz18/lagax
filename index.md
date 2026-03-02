@@ -560,7 +560,7 @@ startAutoplay();
     </div>
 
     <div class="cliente-card">
-      <img src="Cummins-logo.jpg" loading="lazy" alt="Logo Cummins" class="cliente-logo">
+      <img src="CUMMINS.jpg" loading="lazy" alt="Logo Cummins" class="cliente-logo">
       <div class="cliente-nombre">Cummins</div>
     </div>
 
