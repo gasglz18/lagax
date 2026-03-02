@@ -559,15 +559,6 @@ startAutoplay();
       <div class="cliente-nombre">Anchor Bay Packaging</div>
     </div>
 
-    <div class="cliente-card">
-      <img src="CUMMINS.jpg" loading="lazy" alt="Logo Cummins" class="cliente-logo">
-      <div class="cliente-nombre">Cummins</div>
-    </div>
-
-    <div class="cliente-card">
-      <img src="ALCAST.jpg" loading="lazy" alt="Logo ALCAST" class="cliente-logo">
-      <div class="cliente-nombre">ALCAST</div>
-    </div>
   </div>
 </div>
 
