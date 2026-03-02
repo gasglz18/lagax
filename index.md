@@ -546,7 +546,7 @@ startAutoplay();
 <div class="hero-card clientes-hero" id="nuestros-clientes">
   <h3 class="hero-section-title">Nuestros Clientes</h3>
   <div class="hero-divider"></div>
-  <p class="hero-description" style="margin-bottom: 25px;">Empresas que han confiado en <strong>Lagax</strong>.</p>
+  <p class="hero-description" style="margin-bottom: 25px;">Algunas empresas que han confiado en <strong>Lagax</strong>.</p>
 
   <div class="clientes-grid">
     <div class="cliente-card">
