@@ -159,9 +159,25 @@
           display: block;
         }
       }
+
+      .footer-quick-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin: 16px 0 10px;
+      }
+
+      .footer-quick-links a {
+        text-decoration: none;
+      }
+
+      .footer-back-to-top {
+        margin-top: 8px;
+      }
     </style>
   </head>
-  <body>
+  <body id="home">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
       <div class="container-fluid px-md-5">
@@ -219,6 +235,17 @@
     <!-- Footer -->
     <footer class="footer mt-5 py-4">
       <div class="container text-center">
+        <div class="footer-quick-links" aria-label="Enlaces rápidos">
+          <a class="btn btn-sm btn-outline-light" href="#home">Inicio</a>
+          <a class="btn btn-sm btn-outline-light" href="#quienes-somos">Quiénes somos</a>
+          <a class="btn btn-sm btn-outline-light" href="#productos-servicios">Servicios</a>
+          <a class="btn btn-sm btn-outline-light" href="#ubicaciones">Ubicaciones</a>
+          <a class="btn btn-sm btn-outline-light" href="#nuestros-clientes">Clientes</a>
+          <a class="btn btn-sm btn-outline-light" href="#contactanos">Contacto</a>
+        </div>
+        <div class="footer-back-to-top">
+          <a class="btn btn-sm btn-light" href="#home"><i class="fas fa-arrow-up me-1"></i>Ir al inicio</a>
+        </div>
         <p class="mb-2"><small>&copy; 2023 Productos y Servicios Lagax S.A de C.V.</small></p>
         <p class="mb-0"><small>Comercializadora Industrial | Importación • Exportación • Logística</small></p>
         {% include visit-counter.html %}
