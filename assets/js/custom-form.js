@@ -3,6 +3,7 @@
   'use strict';
   
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwA8siBlH6RvFj8OgKuot-StMsCQ1INdytCOT6ycyFTfM0xtak4jNFQsoQjP9k6aiQC/exec';
+  const DESTINATION_EMAIL = 'direccion@lagax.shop';
   
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('lagax-custom-form');
@@ -21,13 +22,12 @@
       
       // Get form data
       const formData = {
-        nombre: document.getElementById('nombre').value,
-        email: document.getElementById('email').value,
-        direccion: document.getElementById('direccion').value,
-        telefono: document.getElementById('telefono').value,
-        presupuesto: document.getElementById('presupuesto').value,
-        horario: document.getElementById('horario').value,
-        necesidad: document.getElementById('necesidad').value
+        nombre: document.getElementById('nombre').value.trim(),
+        empresa: document.getElementById('empresa').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        mensaje: document.getElementById('mensaje').value.trim(),
+        destinoCorreo: DESTINATION_EMAIL,
+        asunto: 'Nuevo mensaje de contacto - Lagax'
       };
       
       // Send to Google Sheets via Apps Script

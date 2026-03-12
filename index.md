@@ -651,35 +651,20 @@ startAutoplay();
         <label for="nombre">Nombre <span class="required">*</span></label>
         <input type="text" id="nombre" name="nombre" autocomplete="name" required>
       </div>
+
+      <div class="form-group">
+        <label for="empresa">Empresa <span class="required">*</span></label>
+        <input type="text" id="empresa" name="empresa" autocomplete="organization" required>
+      </div>
       
       <div class="form-group">
         <label for="email">Correo electrónico <span class="required">*</span></label>
         <input type="email" id="email" name="email" autocomplete="email" required>
       </div>
       
-      <div class="form-group">
-        <label for="telefono">Número de teléfono <span class="required">*</span></label>
-        <input type="tel" id="telefono" name="telefono" autocomplete="tel" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="horario">¿A qué hora lo podemos contactar y qué medio? <span class="required">*</span></label>
-        <input type="text" id="horario" name="horario" autocomplete="off" required placeholder="Ej: Por la tarde, WhatsApp">
-      </div>
-      
       <div class="form-group full-width">
-        <label for="direccion">Ciudad/País <span class="required">*</span></label>
-        <textarea id="direccion" name="direccion" autocomplete="street-address" rows="2" required></textarea>
-      </div>
-      
-      <div class="form-group full-width">
-        <label for="presupuesto">¿Cuál es su rango de precio deseado y presupuesto? <span class="required">*</span></label>
-        <textarea id="presupuesto" name="presupuesto" autocomplete="off" rows="2" required></textarea>
-      </div>
-      
-      <div class="form-group full-width">
-        <label for="necesidad">¿Cuál es su necesidad? <span class="required">*</span></label>
-        <textarea id="necesidad" name="necesidad" autocomplete="off" rows="3" required></textarea>
+        <label for="mensaje">Mensaje <span class="required">*</span></label>
+        <textarea id="mensaje" name="mensaje" autocomplete="off" rows="4" required placeholder="Cuéntanos brevemente qué necesitas"></textarea>
       </div>
     </div>
     
