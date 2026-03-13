@@ -13,63 +13,78 @@
     const successMsg = document.getElementById('successMessage');
     const errorMsg = document.getElementById('errorMessage');
     
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
-      
+
       // Disable submit button
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-      
-      // Get form data
-      const formData = {
-        nombre: document.getElementById('nombre').value.trim(),
-        empresa: document.getElementById('empresa').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        mensaje: document.getElementById('mensaje').value.trim(),
-        destinoCorreo: DESTINATION_EMAIL,
-        asunto: 'Nuevo mensaje de contacto - Lagax'
-      };
-      
-      // Send to Google Sheets via Apps Script
-      fetch(APPS_SCRIPT_URL, {
-        redirect: 'follow',
-        method: 'POST',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8',
-        },
-        body: JSON.stringify(formData)
-      })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(result) {
-        console.log('Respuesta del servidor:', result);
-        
+      errorMsg.style.display = 'none';
+
+      try {
+        const nombreInput = document.getElementById('nombre');
+        const empresaInput = document.getElementById('empresa');
+        const emailInput = document.getElementById('email');
+        const mensajeInput = document.getElementById('mensaje');
+
+        if (!nombreInput || !empresaInput || !emailInput || !mensajeInput) {
+          throw new Error('No se encontraron todos los campos del formulario.');
+        }
+
+        const formData = {
+          nombre: nombreInput.value.trim(),
+          empresa: empresaInput.value.trim(),
+          email: emailInput.value.trim(),
+          mensaje: mensajeInput.value.trim(),
+          destinoCorreo: DESTINATION_EMAIL,
+          asunto: 'Nuevo mensaje de contacto - Lagax'
+        };
+
+        const controller = new AbortController();
+        const timeoutId = setTimeout(function() {
+          controller.abort();
+        }, 15000);
+
+        const response = await fetch(APPS_SCRIPT_URL, {
+          redirect: 'follow',
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+          },
+          body: JSON.stringify(formData),
+          signal: controller.signal
+        });
+
+        clearTimeout(timeoutId);
+
+        const rawText = await response.text();
+        let result;
+
+        try {
+          result = JSON.parse(rawText);
+        } catch (parseError) {
+          throw new Error('El servidor no devolvio JSON valido. Revisa el despliegue de Apps Script.');
+        }
+
         if (result.status === 'success') {
-          // Show success message
           successMsg.style.display = 'block';
           errorMsg.style.display = 'none';
           form.reset();
-          
-          // Re-enable button after a delay
           setTimeout(function() {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar';
             successMsg.style.display = 'none';
           }, 5000);
-        } else {
-          throw new Error(result.message || 'Error desconocido');
+          return;
         }
-      })
-      .catch(function(error) {
-        // Show error message
+
+        throw new Error(result.message || 'Error desconocido');
+      } catch (error) {
         console.error('Error:', error);
         errorMsg.style.display = 'block';
         successMsg.style.display = 'none';
-        
+      } finally {
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar';
-      });
+      }
     });
   });
 })();
