@@ -2,7 +2,7 @@
 (function() {
   'use strict';
   
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwA8siBlH6RvFj8OgKuot-StMsCQ1INdytCOT6ycyFTfM0xtak4jNFQsoQjP9k6aiQC/exec';
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxUYxWwA-zVP7oH8Vvbj7otRNxVAkhpnVml_bzOnO-pw6k_cj8fr55A7pJ28d8kYT_s/exec';
   const DESTINATION_EMAIL = 'direccion@lagax.shop';
   
   document.addEventListener('DOMContentLoaded', function() {
